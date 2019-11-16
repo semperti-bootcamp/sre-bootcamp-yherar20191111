@@ -1,6 +1,0 @@
-Generar un repositorio dentro de https://github.com/semperti-bootcamp y generar un commit con los archivos iniciales del repo original SIN MODIFICACIONES
-El nombre debe respetar la siguiente nomenclatura: sre-bootcamp-name-<YYMMDD>  --> La fecha debe ser el día de inicio del Bootcamp
-Se debe generar un branch por cada assignment
-Sólo deben generarse PRs con los archivos MODIFICADOS contra el repositorio generado en el punto 0.0
-Se debe setear como resuelto en Zoho Sprint con el vínculo al PR
-Siempre se debe incluir un Readme.md con toda la información necesaria para evaluar el trabajo realizado [pasos para probar, inconvenientes encontrados, etc.]
