@@ -1,34 +1,8 @@
-# Week 01 - Assignments
-Repositorio para los assignments de la primer semana.
+Creacion del Repositorio en GitHub sin modificaciones.
 
-# Java Application
-
-## Prerequisites
-
-	1. Java 8
-	2. Maven 3.3+
-	3. MySQL 5.6+
-	4. Internet connection
-	
-	
-## Instrucciones para correr esta aplicación
-
-	1. Configurar la conexión de la base de datos desde Code/src/main/resources/application.properties
-	2. Ubicate en la carpeta del código y ejecutá "mvn spring-boot:run".
-	3. Revisá la siguiente dirección http://localhost:8080
-	4. [Opcional] Por defecto, la aplicación almacena los PDFs en el directorio <User_home>/upload. Si querés cambiar este directorio, podés utilizar la propiedad -Dupload-dir=<path>.
-	5. [Opcional] Los PDFs predefinidos pueden encontrarse en la carpeta PDF. Si querés ver los PDFs, tenés que copiar los contenidos de esta carpeta a lo definido en el paso anterior.
-	
-## Datos de autenticación
-
-	El sistema viene con 4 cuentas pre-definidas:
-		1. publishers:
-			- username: publisher1 / password: publisher1
-			- username: publisher2 / password: publisher2
-		2. public users:
-			- username: user1 / password: user1
-			- username: user2 / password: user2
-            
-# Contact
-
-Cualquier duda o consulta, ubicanos en [Slack](https://semperti.slack.com).
+0.0	Generar un repositorio dentro de https://github.com/semperti-bootcamp y generar un commit con los archivos iniciales del repo original SIN MODIFICACIONES
+0.1	El nombre debe respetar la siguiente nomenclatura: sre-bootcamp-name-<YYMMDD>  --> La fecha debe ser el día de inicio del Bootcamp
+0.2	Se debe generar un branch por cada assignment
+0.3	Sólo deben generarse PRs con los archivos MODIFICADOS contra el repositorio generado en el punto 0.0
+0.4	Se debe setear como resuelto en Zoho Sprint con el vínculo al PR
+0.5	Siempre se debe incluir un Readme.md con toda la información necesaria para evaluar el trabajo realizado [pasos para probar, inconvenientes encontrados, etc.]
