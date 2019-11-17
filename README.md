@@ -1,4 +1,4 @@
-## sre-bootcamp-yherar-01.
+## sre-bootcamp-yherar-01
 
 # Crear Repositorios.
 
