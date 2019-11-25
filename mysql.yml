@@ -10,7 +10,7 @@
       get_url:
        url: http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm  
        dest: /home/yherar
-    - name: Instalacion de los repositorios
+    - name: Instalacion  los repositorios
       yum: 
        name: /home/yherar/mysql-community-release-el7-7.noarch.rpm
        state: present
