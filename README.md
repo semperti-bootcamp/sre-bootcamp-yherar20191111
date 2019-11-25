@@ -51,28 +51,6 @@
 	
   7.- Screenshots validando los paquetes: 
   
-   java.yml: 
-	
-	
-	
-	
-	
-	
-	
-	
-  maven.yml
-  
-  
-  
-  
-  
-  mysql.yml
-  
-
-
-
-
-
 
 
 	
