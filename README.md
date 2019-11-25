@@ -19,7 +19,7 @@
   
       yum install ansible
       
-  3.- Editamos nuestro inventario y colocamos las IP de nuestro servidor: 
+  3.- Editamos nuestro inventario y colocamos la IP de nuestro servidor: 
   
       vi /etc/ansible/hosts  
       
