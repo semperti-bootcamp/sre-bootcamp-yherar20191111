@@ -10,7 +10,7 @@
 
 # Creacion de la VM con terraform.
   
-  Se creo de manera manuel la VM en RHEV,con las siguientes caracteristicas:
+  Se creo de manera manual la VM en RHEV,con las siguientes caracteristicas:
   
 
 	1. Sistema Operativo CentOS 7.
