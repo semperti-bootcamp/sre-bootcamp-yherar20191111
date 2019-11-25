@@ -6,11 +6,11 @@
     tasks: 
       
    
-    - name: Descargar los repositorios mysql
+    - name: Descargar los repositorios de mysql
       get_url:
        url: http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm  
        dest: /home/yherar
-    - name: Instalacion  los repositorios
+    - name: Instalacion de los repositorios
       yum: 
        name: /home/yherar/mysql-community-release-el7-7.noarch.rpm
        state: present
