@@ -41,9 +41,9 @@
     
    6.- Se creo un playbook por cada paquete:
    
-        java-8.yml
-	maven.yml
-	mysql.yml
+          java-8.yml
+	  maven.yml
+	  mysql.yml
    
    7.- Se ejecutan los playbook:
    
