@@ -30,7 +30,7 @@
      
   5.- Verifivamos si nuestro servidor esta enlazado:
   
-     ansible 10.252.7.84 .m ping
+     ansible 10.252.7.84 -m ping
      10.252.7.84 | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python"
