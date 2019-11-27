@@ -1,66 +1,37 @@
-## sre-bootcamp-yherar-03
 
-# Requisitos:
+   # Week 01 - Assignments
+Repositorio para los assignments de la primer semana.
+
+# Java Application
+
+## Prerequisites
+
+	1. Java 8
+	2. Maven 3.3+
+	3. MySQL 5.6+
+	4. Internet connection
 	
-     1.- Deben configurarse todos los elementos solicitados [Java 8, Maven, MySQL, etc.]
-     2.-Deben proveerse screenshots validando los paquetes instalados 
-     3-.Deben proveerse los scripts de configuración
-     4.-Deben describirse todos los pasos y requerimientos para ejecutar el script de Ansible
-     
-# Configuracion de la VM con Ansible
- 
-  1-. Actualizamos nuestros repositorios:
-  
-    dnf update 
-       
-  2.- Instalamos Ansible:
-  
-    dnf install ansible
-    
-  3.- Editamos nuestro inventario y colocamos nuestra IP del servidor:
-  
-     vi /etc/ansible/hosts 
-     [webserver]
-     10.252.7.84
-  
-  4.- Creamos la llave ssh para nuestro servidor:
-  
-     ssh-keygen
-     ssh-copy-id  -i ~/.ssh/id_rsa.pub "10.252.7.84" 
-     
-  5.- Verificamos si nuestro servidor esta enlazado:
-  
-     ansible 10.252.7.84 -m ping
-     10.252.7.84 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python"
-    },
-    "changed": false,
-    "ping": "pong"
-    } 
-    
-   6.- Se creo un playbook por cada paquete:
-   
-    java-8.yml
-    maven.yml
-    mysql.yml
-   
-   7.- Se ejecutan los playbook:
-   
-    ansible-playbook java-8.yml    
-      
-  ![ansible-java](https://user-images.githubusercontent.com/57635156/69590413-23693b00-0fce-11ea-9a16-68b5fcfe89af.jpg)
+	
+## Instrucciones para correr esta aplicación
 
-   
-    ansible-playbook maven.yml
-     
-  ![ansible-maven](https://user-images.githubusercontent.com/57635156/69590487-7511c580-0fce-11ea-8d6f-23ca55695bbf.jpg)
+	1. Configurar la conexión de la base de datos desde Code/src/main/resources/application.properties
+	2. Ubicate en la carpeta del código y ejecutá "mvn spring-boot:run".
+	3. Revisá la siguiente dirección http://localhost:8080
+	4. [Opcional] Por defecto, la aplicación almacena los PDFs en el directorio <User_home>/upload. Si querés cambiar este directorio, podés utilizar la propiedad -Dupload-dir=<path>.
+	5. [Opcional] Los PDFs predefinidos pueden encontrarse en la carpeta PDF. Si querés ver los PDFs, tenés que copiar los contenidos de esta carpeta a lo definido en el paso anterior.
+	
+## Datos de autenticación
 
+	El sistema viene con 4 cuentas pre-definidas:
+		1. publishers:
+			- username: publisher1 / password: publisher1
+			- username: publisher2 / password: publisher2
+		2. public users:
+			- username: user1 / password: user1
+			- username: user2 / password: user2
+            
+# Contact
 
-    ansible-playbook mysql.yml
-     
-  ![ansible-mysql](https://user-images.githubusercontent.com/57635156/69590570-b6a27080-0fce-11ea-94d4-d5beb5483172.jpg)
+Cualquier duda o consulta, ubicanos en [Slack](https://semperti.slack.com).
 
- 
-   
       
