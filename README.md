@@ -28,7 +28,7 @@
      ssh-keygen
      ssh-copy-id  -i ~/.ssh/id_rsa.pub "10.252.7.84" 
      
-  5.- Verifivamos si nuestro servidor esta enlazado:
+  5.- Verificamos si nuestro servidor esta enlazado:
   
      ansible 10.252.7.84 -m ping
      10.252.7.84 | SUCCESS => {
