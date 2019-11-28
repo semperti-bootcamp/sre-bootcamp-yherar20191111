@@ -23,10 +23,10 @@
   3.- Ejecutamos en orden los siguientes comandos para ejecurtar el mvn spring-boot:run, limpiar nuestro proyecto,crear y           ejecutar el .jar:
   
       mvn spring-boot:run
-      mvn clear compile
-      mvn clear test
-      mvn clear package 
-      mvn clear install
+      mvn clean compile
+      mvn clean test
+      mvn clean package 
+      mvn clean install
       java -jar /home/yherar/wee01/Code/target/journals-1.0.jar
 
  4.- Creamos una carpeta y copiamos los PDFs para poder visualizarlos:
