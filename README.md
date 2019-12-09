@@ -57,12 +57,12 @@
    snapshot: 
               
     mvn versions:set -DnewVersion=8.8-SNAPSHOT
-    mvn deploy
+    mvn clean deploy
 
    release:  
    
     mvn versions:set -DnewVersion=8.9
-    mvn deploy
+    mvn clean deploy
 	     
 	     
    5.- Creacion de playbooks:
