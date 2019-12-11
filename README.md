@@ -1,50 +1,55 @@
-
-
  
-   ## sre-bootcamp-yherar-04
+ ## sre-bootcamp-yherar-06
 
 # Requisitos:
 
-      1.-Se debe proveer un link de acceso a la aplicación
-      2.-Debe quedar 100% funcional [crear un jornal (PDF), ver PDFs previos, etc]
-      3.-Debe pasar el testeo de Maven
+    1.-Se debe proveer el Dockerfile y los archivos necesarios para generar la imagen
+    2.- Debe quedar corriendo el container
+    3.-Debe proveerse un link para probar el funcionamiento del contenedor
+      
+# Dockerizar la aplicacion: 
 
-# Probar aplicacion Java: 
-
-  1.- Me conecto a traves de ssh a la VM:
+  1.- Instalamos docker:
         
-      ssh root@10.252.7.84
+      yum install docker
       
-  2.- Instalo git y clono el repositorio: 
+  2.- Habilitamos e Iniciamos docker: 
   
-      yum install git 
+      systemctl enable docker
       
-      git clone git@github.com:semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git
+      systemctl start docker
       
-  3.- Ejecutamos en orden los siguientes comandos para ejecurtar el mvn spring-boot:run, limpiar nuestro proyecto,crear y           ejecutar el .jar:
+  3.- Creamos un Dockerfile en la raiz de nuestro proyecto: 
   
-      mvn spring-boot:run
-      mvn clean compile
-      mvn clean test
-      mvn clean package 
-      mvn clean install
-      java -jar /home/yherar/wee01/Code/target/journals-1.0.jar
-
- 4.- Creamos una carpeta y copiamos los PDFs para poder visualizarlos:
-    
-     mkdir /root/upload
-     cp -Rf /home/yherar/week01/PDFs/*   /root/upload
+      cd /sre-bootcamp-yherar-11-11-2019
+      touch Dockerfile
+      
+ 4.- Configuramos el Dockerfile para crear la Imagen:
+ 
+     FROM openjdk:8-alpine
+     EXPOSE 8080
+     RUN mkdir -p /root/upload
+     COPY /PDFs /root/upload/
+     ADD http://10.252.7.162:8081/repository/maven-releases/com/semperti/trial/journals/9.1/journals-9.1.jar /root/upload/
+     CMD ["java","-jar","/root/upload/journals-9.1.jar"]
      
-     
-  5.- Revisamos la siguente direccion:
+  5.- Creamos la imagen y vemos su estado:
   
-      http://10.252.7.84:8080
+      docker build -t app-java2.0 .
+      docker images
+      
+      [root@prod-ocp-nodo3 sre-bootcamp-yherar-11-11-2019]# docker images 
+      REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+      app-java2.0         latest              e0b80668a18f        4 hours ago         156 MB
+      
+  6.- Corremos la imagen en segundo plano (-d), la mapeamos en el puerto 8080 (-p) y le asignamos la misma IP 
+      de nuestro host (--network=host):
+      
+      docker run -d -p 8080:8080 --network=host app-java2.0
       
       
-   ![spring-boot2](https://user-images.githubusercontent.com/57635156/69754867-b7094b80-1135-11ea-8da4-53539a685ad3.jpg)
+  
+      
 
  
-  6.- Vemos el PDF: 
   
-  
-   ![PDFs2](https://user-images.githubusercontent.com/57635156/69754660-3b0f0380-1135-11ea-9eae-3143866eaa8e.jpg)      
