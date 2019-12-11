@@ -46,10 +46,14 @@
       de nuestro host (--network=host):
       
       docker run -d -p 8080:8080 --network=host app-java2.0
-      
-      
+   
+   
+   
+   
   
-      
+   Link de la aplicacion: 
+  
+   http://10.252.7.84:8080/      
 
  
   
