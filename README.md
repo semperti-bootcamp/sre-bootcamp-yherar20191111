@@ -20,7 +20,7 @@
         Login Succeeded
 
 
-  3.- Tag a la Imagen:
+  3.-  Tag a la Imagen:
    
    - usamos el comando docker tag: 
    - ID de la imagen:                                           (e0b80668a18f) 
