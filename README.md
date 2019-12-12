@@ -1,4 +1,4 @@
-## sre-bootcamp-yherar-02
+## 2.--Terraform
 
 # Requisitos:
 
