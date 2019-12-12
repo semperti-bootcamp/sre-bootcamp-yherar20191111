@@ -1,0 +1,34 @@
+---
+
+
+  - hosts: all
+    become: true
+
+    tasks: 
+   
+    - name: instalacion de maven 3.6.2
+      get_url:
+       url: http://apache.dattatec.com/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz
+       dest: /opt
+    - name: extraer archivo
+      unarchive:
+       src: /opt/apache-maven-3.6.2-bin.tar.gz 
+       dest: /opt
+       remote_src: yes
+    - name: creacion del enlace simbolico
+      file: 
+       src: /opt/apache-maven-3.6.2
+       dest: /opt/maven
+       state: link 
+    - name: crear archivo maven1.sh
+      copy: 
+       content: "export M2_HOME=/opt/maven"
+       dest: /etc/profile.d/maven1.sh 
+       mode: "0777"
+    - name: exportamos el path de maven
+      lineinfile:
+       path: /etc/profile.d/maven1.sh
+       line: 'export PATH=${M2_HOME}/bin:${PATH}'
+    - name: cargar y guardar variables de entorno
+      shell:  source /etc/profile.d/maven1.sh
+...
