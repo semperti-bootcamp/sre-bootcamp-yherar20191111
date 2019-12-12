@@ -1,50 +1,83 @@
-
-## 4.--Java
-
-# Requisitos:
-
-      1.-Se debe proveer un link de acceso a la aplicación
-      2.-Debe quedar 100% funcional [crear un jornal (PDF), ver PDFs previos, etc]
-      3.-Debe pasar el testeo de Maven
-
-# Probar aplicacion Java: 
-
-  1.- Me conecto a traves de ssh a la VM:
-        
-      ssh root@10.252.7.84
-      
-  2.- Instalo git y clono el repositorio: 
+## 5.--Nexus
   
-      yum install git 
-      
-      git clone git@github.com:semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git
-      
-  3.- Ejecutamos en orden los siguientes comandos para ejecurtar el mvn spring-boot:run, limpiar nuestro proyecto,crear y           ejecutar el .jar:
   
-      mvn spring-boot:run
-      mvn clean compile
-      mvn clean test
-      mvn clean package 
-      mvn clean install
-      java -jar /home/yherar/wee01/Code/target/journals-1.0.jar
+# Requisitos: 
 
- 4.- Creamos una carpeta y copiamos los PDFs para poder visualizarlos:
+	1.-Se debe cargar en Nexus un snapshot de la aplicación Java
+	2.-Se debe cargar en Nexus un release de la aplicación Java
+	3.-Se deben realizar mediante un script de Ansible
+	4.-Se debe proveer todos los archivos necesarios para realizar estas tareas
+
+
+# Cargar aplicacion Java en Repositorios Nexus:
+
+   1.- Agregamos en nuestro pom.xml la direccion de nuestro repositorio:
+   
+       <distributionManagement>
+         <snapshotRepository>
+          <id>snapshots</id>
+          <url>http://localhost:8081/repository/maven-snapshots/</url>
+         </snapshotRepository>
+         <repository>
+          <id>releases</id>
+          <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+      </distributionManagement>
+     
+     
+   2.- Colocamos una dependencia:
+   
+        <dependency>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-release-plugin</artifactId>
+           <version>2.5.3</version>
+           <type>maven-plugin</type>
+       </dependency>
+       
+   
+   3.- Colocamos en settings.xml nuestras credenciales:
+   
+       <server>
+        <id>snapshots</id>
+        <username>user</username>
+        <password>password</password>
+      </server>
+      <server>
+       <id>releases</id>
+       <username>user</username>
+       <password>password</password>
+      </server>
+   
+   NOTA: Tener en cuenta al momento de configurar las credenciales deben estar correctas, si no es asi saldra el error (401)
+       
+  
+   4.-  Creacion y deploy de snapshot y release:
     
-     mkdir /root/upload
-     cp -Rf /home/yherar/week01/PDFs/*   /root/upload
+   
+   snapshot: 
+              
+    mvn versions:set -DnewVersion=8.8-SNAPSHOT
+    mvn clean deploy
+
+   release:  
+   
+    mvn versions:set -DnewVersion=8.9
+    mvn clean deploy
+	     
+	     
+   5.- Creacion de playbooks:
+   
+   Se crearon dos playbooks, uno para un snapshot y otro para un release:
+  
      
-     
-  5.- Revisamos la siguente direccion:
-  
-      http://10.252.7.84:8080
-      
-      
-   ![spring-boot2](https://user-images.githubusercontent.com/57635156/69754867-b7094b80-1135-11ea-8da4-53539a685ad3.jpg)
+     asnible-playbook  snapshot.yml
+       
+   ![snapshot](https://user-images.githubusercontent.com/57635156/70404041-7bb12b80-1a17-11ea-9fe3-ee2f4c91b864.jpg)
 
- 
-  6.- Vemos el PDF: 
+    
+    
+    
+    ansible-playbook  release.yml
+	     
+![release](https://user-images.githubusercontent.com/57635156/70404072-9683a000-1a17-11ea-8ca9-b783baa1df0e.jpg)
   
-  
-   ![PDFs2](https://user-images.githubusercontent.com/57635156/69754660-3b0f0380-1135-11ea-9eae-3143866eaa8e.jpg)    
-
-
