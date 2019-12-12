@@ -1,65 +1,50 @@
 
-## 3.--Ansible
+## 4.--Java
 
 # Requisitos:
-	
-     1.- Deben configurarse todos los elementos solicitados [Java 8, Maven, MySQL, etc.]
-     2.-Deben proveerse screenshots validando los paquetes instalados 
-     3-.Deben proveerse los scripts de configuración
-     4.-Deben describirse todos los pasos y requerimientos para ejecutar el script de Ansible
-     
-# Configuracion de la VM con Ansible
- 
-  1-. Actualizamos nuestros repositorios:
-  
-    dnf update 
-       
-  2.- Instalamos Ansible:
-  
-    dnf install ansible
-    
-  3.- Editamos nuestro inventario y colocamos nuestra IP del servidor:
-  
-     vi /etc/ansible/hosts 
-     [webserver]
-     10.252.7.84
-  
-  4.- Creamos la llave ssh para nuestro servidor:
-  
-     ssh-keygen
-     ssh-copy-id  -i ~/.ssh/id_rsa.pub "10.252.7.84" 
-     
-  5.- Verificamos si nuestro servidor esta enlazado:
-  
-     ansible 10.252.7.84 -m ping
-     10.252.7.84 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python"
-    },
-    "changed": false,
-    "ping": "pong"
-    } 
-    
-   6.- Se creo un playbook por cada paquete:
-   
-    java-8.yml
-    maven.yml
-    mysql.yml
-   
-   7.- Se ejecutan los playbook:
-   
-    ansible-playbook java-8.yml    
+
+      1.-Se debe proveer un link de acceso a la aplicación
+      2.-Debe quedar 100% funcional [crear un jornal (PDF), ver PDFs previos, etc]
+      3.-Debe pasar el testeo de Maven
+
+# Probar aplicacion Java: 
+
+  1.- Me conecto a traves de ssh a la VM:
+        
+      ssh root@10.252.7.84
       
-  ![ansible-java](https://user-images.githubusercontent.com/57635156/69590413-23693b00-0fce-11ea-9a16-68b5fcfe89af.jpg)
+  2.- Instalo git y clono el repositorio: 
+  
+      yum install git 
+      
+      git clone git@github.com:semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git
+      
+  3.- Ejecutamos en orden los siguientes comandos para ejecurtar el mvn spring-boot:run, limpiar nuestro proyecto,crear y           ejecutar el .jar:
+  
+      mvn spring-boot:run
+      mvn clean compile
+      mvn clean test
+      mvn clean package 
+      mvn clean install
+      java -jar /home/yherar/wee01/Code/target/journals-1.0.jar
 
-   
-    ansible-playbook maven.yml
+ 4.- Creamos una carpeta y copiamos los PDFs para poder visualizarlos:
+    
+     mkdir /root/upload
+     cp -Rf /home/yherar/week01/PDFs/*   /root/upload
      
-  ![ansible-maven](https://user-images.githubusercontent.com/57635156/69590487-7511c580-0fce-11ea-8d6f-23ca55695bbf.jpg)
-
-
-    ansible-playbook mysql.yml
      
-  ![ansible-mysql](https://user-images.githubusercontent.com/57635156/69590570-b6a27080-0fce-11ea-94d4-d5beb5483172.jpg)
+  5.- Revisamos la siguente direccion:
+  
+      http://10.252.7.84:8080
+      
+      
+   ![spring-boot2](https://user-images.githubusercontent.com/57635156/69754867-b7094b80-1135-11ea-8da4-53539a685ad3.jpg)
+
+ 
+  6.- Vemos el PDF: 
+  
+  
+   ![PDFs2](https://user-images.githubusercontent.com/57635156/69754660-3b0f0380-1135-11ea-9eae-3143866eaa8e.jpg)    
 
 
