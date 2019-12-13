@@ -26,12 +26,12 @@
       mvn clean test
       mvn clean package 
       mvn clean install
-      java -jar /home/yherar/wee01/Code/target/journals-1.0.jar
+      java -jar /home/yherar/sre-bootcamp-yherar-11-11-2019/Code/target/journals-1.0.jar
 
  4.- Creamos una carpeta y copiamos los PDFs para poder visualizarlos:
     
      mkdir /root/upload
-     cp -Rf /home/yherar/week01/PDFs/*   /root/upload
+     cp -Rf /home/yherar/sre-bootcamp-yherar-11-11-2019/PDFs/*   /root/upload
      
      
   5.- Revisamos la siguente direccion:
