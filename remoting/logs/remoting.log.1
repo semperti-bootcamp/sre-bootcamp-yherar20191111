@@ -1,0 +1,21 @@
+dic 16, 2019 1:32:04 PM hudson.remoting.jnlp.Main createEngine
+INFORMACIÓN: Setting up agent: bc-yherar
+dic 16, 2019 1:32:04 PM hudson.remoting.jnlp.Main$CuiListener <init>
+INFORMACIÓN: Jenkins agent is running in headless mode.
+dic 16, 2019 1:32:04 PM hudson.remoting.Engine startEngine
+INFORMACIÓN: Using Remoting version: 3.30
+dic 16, 2019 1:32:04 PM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFORMACIÓN: Using /home/yherar/sre-bootcamp-yherar-11-11-2019/remoting as a remoting work directory
+dic 16, 2019 1:32:04 PM hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Locating server among [http://10.252.7.162:8080/]
+dic 16, 2019 1:32:04 PM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
+INFORMACIÓN: Remoting server accepts the following protocols: [JNLP4-connect, Ping]
+dic 16, 2019 1:32:04 PM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver isPortVisible
+ADVERTENCIA: No existe ninguna ruta hasta el `host' (Host unreachable)
+dic 16, 2019 1:32:04 PM hudson.remoting.jnlp.Main$CuiListener error
+GRAVE: http://10.252.7.162:8080/ provided port:32875 is not reachable
+java.io.IOException: http://10.252.7.162:8080/ provided port:32875 is not reachable
+	at org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver.resolve(JnlpAgentEndpointResolver.java:287)
+	at hudson.remoting.Engine.innerRun(Engine.java:523)
+	at hudson.remoting.Engine.run(Engine.java:474)
+
