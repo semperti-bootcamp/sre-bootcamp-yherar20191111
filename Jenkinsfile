@@ -3,7 +3,7 @@ pipeline {
             stages {
         stage('Construir la aplicacion') { 
             steps {
-                sh 'mvn -B  clean package' 
+                sh 'echo prueba' 
           }
        }
      }
