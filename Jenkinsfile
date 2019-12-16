@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent 
+          { bc-yherar
 
     stages {
         stage('Build') {
@@ -17,5 +18,6 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
+     }
+  }
 }
