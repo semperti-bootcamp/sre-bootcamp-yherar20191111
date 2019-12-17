@@ -2,6 +2,7 @@ pipeline {
     agent { node { label 'bc-yherar' } }
 
     stages {
+        
         stage('Limpiar Versiones') {
             steps {
 
