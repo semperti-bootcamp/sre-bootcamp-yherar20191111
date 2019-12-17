@@ -1,12 +1,13 @@
 pipeline {
-        agent { node { label 'bc-yherar' } }
-            stages {
-        stage('Construir la aplicacion') { 
+    agent { node { label 'bc-yherar' } }
+
+    stages {
+        stage('Limpiar Versiones') {
             steps {
-                sh 'mvn -B  clean package' 
-                junit '**/Code/pom.xml'
+                  
+                  sh "mvn clean"
+                  workspace "Code/pom.xml"
+            }
           }
        }
-     }
-   }
- 
+    }
