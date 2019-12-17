@@ -5,7 +5,7 @@ pipeline {
         stage('Limpiar Versiones') {
             steps {
                     
-                  sh "mvn clear --file Code/pom.xml"
+                  sh "mvn clean --file Code/pom.xml"
                   sh "echo clean"  
             }
           }
