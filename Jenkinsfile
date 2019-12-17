@@ -32,7 +32,7 @@ pipeline {
        stage('releases y deploy a nexus') {
              steps {  
         
-                    sh "mvn versions:set -DnewVersion=$env.AppVersion --file /root/Code/pom.xml"
+                    sh "mvn versions:set -DnewVersion=$env.Artefacto --file /root/Code/pom.xml"
                     sh "mvn -f deploy --file Code/pom.xml"
                  
                    }
