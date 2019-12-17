@@ -6,7 +6,7 @@ pipeline {
             steps {
                      
                   sh "mvn clean install Code/"
-               
+                  junit 'Code/pom.xml' 
             }
           }
        }
