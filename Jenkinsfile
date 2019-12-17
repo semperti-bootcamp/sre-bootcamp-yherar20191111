@@ -5,7 +5,7 @@ pipeline {
         stage('Limpiar Versiones') {
             steps {
                      
-                  sh "mvn clean /home/yherar/workspace/bc-yherar/CI/Code/pom.xml
+                  sh "mvn clean /home/yherar/workspace/bc-yherar/CI/Code/pom.xml"
                   
             }
           }
