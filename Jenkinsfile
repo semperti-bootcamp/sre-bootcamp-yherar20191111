@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Limpiar Versiones') {
             steps {
-                  sh "mvn clean install"
+                  sh "mvn clean install Code/"
             }
           }
        }
