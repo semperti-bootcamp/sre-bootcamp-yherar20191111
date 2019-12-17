@@ -9,7 +9,7 @@ pipeline {
 
                   }
 
-    stages {
+    
         stage('test maven') {
             steps {
 
@@ -20,5 +20,5 @@ pipeline {
            }
          }
        }
-     }
+    
                          
