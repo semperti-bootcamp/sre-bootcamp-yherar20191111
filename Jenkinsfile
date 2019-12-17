@@ -7,7 +7,7 @@ pipeline {
             steps {
 
                   sh "mvn -B clean --file Code/pom.xml"
-                  sh "mvn -B test --file Code/pom.xml"
+                  sh "mvn  test --file Code/pom.xml"
 
                   }
              }
