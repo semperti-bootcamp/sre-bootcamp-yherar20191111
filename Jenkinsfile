@@ -6,7 +6,7 @@ pipeline {
             steps {
                     
                   sh "mvn clean --file Code/pom.xml"
-                  sh "echo clean"  
+                    
             }
           }
        }
