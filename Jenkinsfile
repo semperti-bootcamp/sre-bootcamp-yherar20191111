@@ -4,6 +4,7 @@ pipeline {
         stage('Construir la aplicacion') { 
             steps {
                 sh 'mvn -B  clean package' 
+                junit '**/Code/*.xml'
           }
        }
      }
