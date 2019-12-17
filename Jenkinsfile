@@ -23,12 +23,7 @@ pipeline {
                     }
               
                  }  
-        
-        
-       environment {   
-		   Artefacto = "10.2"
-                   }
-         
+          
        stage('releases y deploy a nexus') {
              steps {  
         
