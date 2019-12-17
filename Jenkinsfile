@@ -1,21 +1,11 @@
 pipeline {
-    agent any
+    agent { node { label 'bc-yherar' } }
 
     stages {
-        stage('Build') {
+        stage('Limpiar Versiones') {
             steps {
-                echo 'Building..'
+                  sh "mvn clean install"
             }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+          }
+       }
     }
-}
