@@ -13,7 +13,7 @@ pipeline {
          
                }
         
-       stage('Compile artefacto, snapshot y deploy a nexus') {
+       stage('snapshot y deploy a nexus') {
              steps {  
            
                     sh "mvn clean package --file Code/pom.xml"
@@ -23,12 +23,18 @@ pipeline {
                     }
               
                  }        
-           
+       stage('snapshot y deploy a nexus') {
+             steps {  
         
+                   sh "mvn versions:set -DnewVersion=10.2 --file Code/pom.xml --file Code/pom.xml"  
+                   sh "mvn clean deploy --file Code/pom.xml"
+                 
+                   }
+                } 
         
-           
-           }
-        } 
+    }
+}
+    
 
          
                          
