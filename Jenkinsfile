@@ -3,23 +3,16 @@ pipeline {
 
     stages {
         
-        stage('Limpiar Versiones') {
+        stage('Limpieza y unit test') {
             steps {
 
                   sh "mvn -B clean --file Code/pom.xml"
-
-                  }
-
-    
-        stage ('test maven') {
-            steps {
-
                   sh "mvn -B test --file Code/pom.xml"
 
                   }
              }
            }
          }
-       }
+     
     
                          
