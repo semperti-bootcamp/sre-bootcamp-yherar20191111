@@ -22,12 +22,17 @@ pipeline {
                 
                     }
               
-                 }        
+                 }  
+        
+        
+       environment {   
+		   AppVersion = "10.2"
+                   }
+         
        stage('releases y deploy a nexus') {
              steps {  
         
-                    sh "mvn versions:set -DnewVersion=10.2  --file Code/pom.xml"
-                    sh "mvn  release:prepare release:perform --file Code/pom.xml"
+                    sh "mvn versions:set -DnewVersion=$env.AppVersion --file /root/Code/pom.xml"
                     sh "mvn -f deploy --file Code/pom.xml"
                  
                    }
