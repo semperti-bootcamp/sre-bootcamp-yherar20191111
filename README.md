@@ -71,7 +71,7 @@
    Se crearon dos playbooks, uno para un snapshot y otro para un release:
   
      
-     asnible-playbook  snapshot.yml
+     ansible-playbook  snapshot.yml
        
    ![snapshot](https://user-images.githubusercontent.com/57635156/70404041-7bb12b80-1a17-11ea-9fe3-ee2f4c91b864.jpg)
 
