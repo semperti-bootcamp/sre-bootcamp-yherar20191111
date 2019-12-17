@@ -5,8 +5,8 @@ pipeline {
         stage('Limpiar Versiones') {
             steps {
                      
-                  sh "mvn clean install Code/"
-                  junit 'Code/pom.xml' 
+                  sh "mvn clean /home/yherar/workspace/bc-yherar/CI/Code/
+                  
             }
           }
        }
