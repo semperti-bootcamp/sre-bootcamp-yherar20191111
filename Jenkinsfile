@@ -27,7 +27,7 @@ pipeline {
              steps {  
         
                     sh "mvn versions:set -DnewVersion=10.2  --file Code/pom.xml"  
-                    sh "mvn clean deploy --file Code/pom.xml -DskipTests"
+                    sh "mvn -f deploy --file Code/pom.xml"
                  
                    }
                 
