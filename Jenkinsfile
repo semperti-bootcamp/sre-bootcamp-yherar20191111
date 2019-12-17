@@ -4,10 +4,21 @@ pipeline {
     stages {
         stage('Limpiar Versiones') {
             steps {
-                    
-                  sh "mvn clean --file Code/pom.xml"
-                    
-            }
-          }
+
+                  sh "mvn -B clean --file Code/pom.xml"
+
+                   }
+
+    stages {
+        stage('test maven') {
+            steps {
+                  sh "mvn -B test --file Code/pom.xml"
+
+
+                }
+             }
+           }
+         }
        }
-    }
+     }
+                                                                                                                                                                                  
