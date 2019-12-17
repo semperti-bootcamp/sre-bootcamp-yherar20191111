@@ -1,13 +1,18 @@
 pipeline {
     agent { node { label 'bc-yherar' } }
 
-    stages {
-        stage('Limpiar Versiones') {
-            steps {
-                     
-                  sh "mvn clean /home/yherar/workspace/bc-yherar/CI/Code/pom.xml"
+           stage('Test') {
+          	  steps {
+                	sh 'mvn test'
+            	}
+            	post {
+                	always {
+                    	junit '/home/yherar/sre-bootcamp-yherar-11-11-2019/Code/'
+                 }
+             }
+         }
                   
-            }
-          }
-       }
-    }
+     }
+         
+      
+   
