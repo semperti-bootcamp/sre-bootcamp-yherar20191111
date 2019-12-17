@@ -26,7 +26,7 @@ pipeline {
         
         
        environment {   
-		   AppVersion = "10.2"
+		   Artefacto = "10.2"
                    }
          
        stage('releases y deploy a nexus') {
