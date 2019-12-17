@@ -1,17 +1,11 @@
 pipeline {
-    agent { node { label 'bc-yherar' } }
-
-              stages {
-        stage('test app') { 
+    agent  { node { label 'bc-yherar' } }
+            stages {
+        stage('Construir la aplicacion') { 
             steps {
-                sh 'mvn test'
-        } 
-       }
-            post {
-                always {
-                    junit '/home/yherar/sre-bootcamp-yherar-11-11-2019/Code/pom.xml'
-
+                sh 'mvn -B  clean package' 
           }
        }
-    }
+     }
+   }
  }
