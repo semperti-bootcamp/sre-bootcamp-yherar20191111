@@ -51,7 +51,7 @@ pipeline {
        stage('New images docker') {
            steps { 
                  
-                   sh "docker build -t new-images-jenkins-CI ."
+                   sh "docker build -t images-jenkins-CI ."
                    sh "docker images"
                              
            
