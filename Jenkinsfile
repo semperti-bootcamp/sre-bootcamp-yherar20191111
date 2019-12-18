@@ -48,7 +48,7 @@ pipeline {
 
         
         
-       stage('New images docker') {
+       stage('New image docker') {
            steps { 
                  
                    sh "docker build -t bc-ci ."
