@@ -33,7 +33,7 @@ pipeline {
           
        stage('release y deploy a nexus') {
              when {
-                // Ejecuta esta etapa solo cuando este "true"
+                // Ejecuta esta etapa solo cuando este "deploy"
                  expression { params.REQUESTED_ACTION == 'not-deploy' } 
                    }         
               
