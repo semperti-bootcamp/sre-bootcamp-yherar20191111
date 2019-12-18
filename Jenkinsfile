@@ -26,7 +26,7 @@ pipeline {
           
        stage('release y deploy a nexus') {
              steps {  
-                when { equals expected: true, actual: release y deploy a nexus } 
+                 when {Utils.markStageSkippedForConditional(release y deploy a nexus)
                              
                     sh "mvn versions:set -DnewVersion=10.2 --file Code/pom.xml"                
                     sh "mvn clean deploy --file Code/pom.xml"
