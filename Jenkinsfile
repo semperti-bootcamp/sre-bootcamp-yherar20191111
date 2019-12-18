@@ -10,7 +10,7 @@ pipeline {
     
      environment {
      registry = "yherar10/bootcamp"
-     registryCredential = 'dockerhub'
+     registryCredential = 'valentia29511208'
                  }    
     
      stages {
