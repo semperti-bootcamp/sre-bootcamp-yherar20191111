@@ -8,7 +8,12 @@ pipeline {
             name: 'REQUESTED_ACTION')
                 }
     
-    stages {
+     environment {
+     registry = "yherar10/bootcamp"
+     registryCredential = 'valentia29511208'
+                 }    
+    
+     stages {
         
        stage('Limpieza y unit test') {
             steps {
@@ -56,6 +61,17 @@ pipeline {
                              
            
                  }           
+             }
+        
+       
+       stage('Tag new imagen and docker push') {
+           steps { 
+        
+                   sh "docker tag 11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-1"
+                   sh "docker push docker.io/yherar10/bootcamp:bc-ci-1"        
+        
+                 }
+            
              }
         
         
