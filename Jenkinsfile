@@ -27,7 +27,7 @@ pipeline {
        stage('release y deploy a nexus') {
              steps {  
                  
-                    sh "mvn -B release:clean release:prepare release:perform --file Code/pom.xml -DcheckModificationExcludeList=**  -DskipTests"                      
+                    sh "mvn -B release:clean release:prepare release:perform --file Code/pom.xml"                      
                     sh "mvn -f deploy --file Code/pom.xml"
                  
                    }
