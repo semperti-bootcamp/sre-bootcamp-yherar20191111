@@ -3,7 +3,7 @@ pipeline {
     
      parameters {
         choice(
-            choices: ['true' , 'false'],
+            choices: ['deploy' , 'not-deploy'],
             description: '',
             name: 'REQUESTED_ACTION')
                 }
@@ -34,7 +34,7 @@ pipeline {
        stage('release y deploy a nexus') {
              when {
                 // Ejecuta esta etapa solo cuando este "true"
-                 expression { params.REQUESTED_ACTION == 'true' } 
+                 expression { params.REQUESTED_ACTION == 'not-deploy' } 
                    }         
               
              steps {          
