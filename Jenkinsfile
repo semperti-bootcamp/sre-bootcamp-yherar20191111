@@ -25,17 +25,18 @@ pipeline {
                  }  
           
        stage('release y deploy a nexus') {
-             steps {  
-                 when {
+            when {
                 // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'greeting' }
               
+            steps {          
+                    
                     sh "mvn versions:set -DnewVersion=10.2 --file Code/pom.xml"                
                     sh "mvn clean deploy --file Code/pom.xml"
                    
-                   }
+                  }
                 
-                 } 
+                } 
         
            }      
         }
