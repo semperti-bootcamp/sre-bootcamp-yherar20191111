@@ -68,16 +68,19 @@ pipeline {
            steps { 
               script {
                    
-                       sh "docker tag 11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-1"
-                       docker.withRegistry( '', registryCredential ) {
-                       dockerImage.push(bc-ci-1)
-                     
+                       dir(config.buildFolder){
+                       newImage = docker.build(${bc-ci-2.0})
+                       docker.withRegistry("https://${registryAddress}", '${credentialsId}'){
+                       newImage.push("${variables.version}")
+    
                      }
-                  }
+                     
+                   }
                }
             }
           }
-         }     
+        }
+     }     
                   
                       
         
