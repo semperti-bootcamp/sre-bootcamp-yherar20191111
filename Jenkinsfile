@@ -45,6 +45,18 @@ pipeline {
                   }
                 
               } 
+       
+     
+        stage('Config User') {
+             steps { 
+            
+                    sh "echo $root"
+                    sh "echo  usermod -aG docker $root"
+                    sh "systemctl restart docker"
+                 
+                   }
+               }
+        
         
        stage('New images docker') {
            steps { 
