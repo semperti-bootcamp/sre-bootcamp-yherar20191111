@@ -26,8 +26,8 @@ pipeline {
           
        stage('release y deploy a nexus') {
              when {
-                // Only say hello if a "greeting" is requested
-                 expression { params.REQUESTED_ACTION == 'greeting' } 
+                // Ejecuta esta etapa solo cuando este "deploy"
+                 expression { params.REQUESTED_ACTION == 'test' } 
                    }         
               
              steps {          
