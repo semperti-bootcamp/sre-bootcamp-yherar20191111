@@ -24,10 +24,10 @@ pipeline {
               
                  }  
           
-       stage('releases y deploy a nexus') {
+       stage('release y deploy a nexus') {
              steps {  
-        
-                    sh "mvn versions:set -DnewVersion=$env.Artefacto --file /root/Code/pom.xml"
+                 
+                    sh "mvn -B release:clean release:prepare release:perform --file /Code/ -DcheckModificationExcludeList=**  -DskipTests"                      
                     sh "mvn -f deploy --file Code/pom.xml"
                  
                    }
