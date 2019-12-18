@@ -70,7 +70,7 @@
            steps { 
              script {
               docker.withRegistry( '', registryCredential ) {
-              dockerImage.push(bc-ci-2.0)              
+              sh "docker push docker.io/yherar10/bootcamp:bc-ci-2.0"             
               
              } 
           }
