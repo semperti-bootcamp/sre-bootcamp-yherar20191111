@@ -49,7 +49,6 @@ pipeline {
        stage('New images docker') {
            steps { 
                  
-                   sh "sudo chmod 770  /var/run/docker.sock "
                    sh "docker build -t new-app-java ."
                    sh "docker images"
                              
