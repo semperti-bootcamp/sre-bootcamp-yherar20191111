@@ -27,7 +27,8 @@ pipeline {
        stage('release y deploy a nexus') {
              steps {  
                  
-                    sh "mvn -B release:clean release:prepare release:perform --file Code/pom.xml"                      
+                    sh "mvn versions:set -DnewVersion=10.2 --file Code/pom.xml"             
+                    sh "mvn  release:clean release:prepare release:perform --file Code/pom.xml"                      
                     sh "mvn -f deploy --file Code/pom.xml"
                  
                    }
