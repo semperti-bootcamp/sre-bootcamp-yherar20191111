@@ -66,13 +66,21 @@ pipeline {
        
        stage('Tag new imagen and docker push') {
            steps { 
+              script {
+                   
+                       sh "docker tag 11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-1"
+                       docker.withRegistry( '', registryCredential ) {
+                       dockerImage.push(bc-ci-1)
+                     
+                     }
+                  }
+               
+                  
+                      
         
-                   sh "docker tag 11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-1"
-                   sh "docker push docker.io/yherar10/bootcamp:bc-ci-1"        
-        
-                 }
+                 
             
-             }
+             
         
         
         
