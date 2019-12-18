@@ -49,7 +49,7 @@ pipeline {
        stage('New images docker') {
            steps { 
                  
-                   sh "docker rmi -D e0b80668a18f"
+                   
                    sh "docker build -t new-app-java ."
                    sh "docker images"
                              
