@@ -11,7 +11,7 @@
 
     environment {
     registry = "yherar10/bootcamp"
-    registryCredential = ‘valentia29511208’
+    registryCredential = "valentia29511208"
     }
 
   
@@ -76,7 +76,13 @@
           }
        }
     } 
-  }        
+  }  
+ }       
+                   
+   
+                     
+        
+                 
                    
    
                      
