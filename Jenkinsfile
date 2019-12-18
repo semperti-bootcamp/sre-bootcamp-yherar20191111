@@ -10,7 +10,7 @@ pipeline {
     
      environment {
      registry = "yherar10/bootcamp"
-     registryCredential = 'valentia29511208'
+     registryCredential = 'dockerhub'
                  }    
     
      stages {
@@ -53,35 +53,30 @@ pipeline {
 
         
         
-       stage('New image docker') {
+       stage('build image docker more tag') {
            steps { 
                  
                    sh "docker build -t bc-ci ."
                    sh "docker images"
-                             
+                   sh "docker tag  11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-2.0"          
            
                  }           
              }
         
        
-       stage('Tag new imagen and docker push') {
+       stage('docker push') {
            steps { 
-              script {
-                   
-                       dir(config.buildFolder){
-                       newImage = docker.build(${bc-ci-2.0})
-                       docker.withRegistry("https://${registryAddress}", '${credentialsId}'){
-                       newImage.push("${variables.version}")
-    
-                     }
-                     
+               script {
+                   docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push(bc-ci-2.0)
                    }
                }
-            }
-          }
-        }
-     }     
-                  
-                      
+           }
+       }
+    } 
+  }        
+                    
+   
+                     
         
                  
