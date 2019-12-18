@@ -1,5 +1,11 @@
 pipeline {
     agent { node { label 'bc-yherar' } }
+    
+     parameters {
+        choice(
+            choices: ['true' , 'false'],
+            description: '',
+            name: 'REQUESTED_ACTION')
 
     stages {
         
@@ -26,8 +32,8 @@ pipeline {
           
        stage('release y deploy a nexus') {
              when {
-                // Ejecuta esta etapa solo cuando este "deploy"
-                 expression { params.REQUESTED_ACTION == 'test' } 
+                // Ejecuta esta etapa solo cuando este "true"
+                 expression { params.REQUESTED_ACTION == 'true' } 
                    }         
               
              steps {          
