@@ -8,6 +8,12 @@
             name: 'REQUESTED_ACTION')
                 }  
 
+
+    environment {
+    registry = "yherar10/bootcamp"
+    registryCredential = ‘valentia29511208’
+
+  
      stages {
         
        stage('Limpieza y unit test') {
@@ -62,7 +68,8 @@
        stage('docker push') {
            steps { 
              script {
-              withDockerRegistry([credentialsId: "valentia29511208", url: ""]) {
+              docker.withRegistry( '', registryCredential ) {
+              dockerImage.push(bc-ci-2.0)              
               
              } 
           }
