@@ -6,9 +6,9 @@
 	
     
     <scm>
-     <connection>scm:git:git@github.com:semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git</connection>
-     <url>git@github.com:semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git</url>
-     <developerConnection>scm:git@github.com:semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git</developerConnection>
+       <connection>scm:hg:https://github.com/semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git</connection>
+       <url>scm:hg:https://github.com/semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git</url>
+       <developerConnection>scm:hg:https://github.com/semperti-bootcamp/sre-bootcamp-yherar-11-11-2019.git</developerConnection>
        <tag>journals-10.2</tag>
     </scm>
 
