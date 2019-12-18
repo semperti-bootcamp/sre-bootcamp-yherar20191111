@@ -51,7 +51,7 @@ pipeline {
        stage('New images docker') {
            steps { 
                  
-                   sh "docker build -t java-app-bc-CI ."
+                   sh "docker build -t bc-CI ."
                    sh "docker images"
                              
            
