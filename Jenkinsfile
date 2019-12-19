@@ -33,7 +33,7 @@
        stage('release y deploy a nexus') {
              when {
                 // Ejecuta esta etapa solo cuando este "true"
-                 expression { params.REQUESTED_ACTION == 'false' } 
+                 expression { params.REQUESTED_ACTION == 'true' } 
                    }         
               
              steps {          
