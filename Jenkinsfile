@@ -58,29 +58,5 @@
              } 
            }
          }
-         
-        stage('stop old container and delete unused image') {
-         steps {
-                  sh "docker ps"
-                  sh "docker stop 8d01b6a3e424"
-                  sh "docker images"
-                  sh "docker rmi -f 11a95ec8e08c"
-               }
-             } 
-         
-        stage('Pull and run new image') {
-         steps {
-                  sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run -d -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
-                }
-              }
-         
-        stage('curl app') {
-        steps {
-                 sh "curl http://10.252.7.84:8080/"
-                }
-              }
-         
-         } 
-       }  
+       } 
      }      
