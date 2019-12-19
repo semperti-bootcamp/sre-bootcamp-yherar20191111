@@ -49,6 +49,7 @@ pipeline {
                    sh "docker tag  11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-2.0"          
                  }           
               }
+            }
       
         stage('docker push') {
             steps { 
