@@ -86,7 +86,6 @@ pipeline {
     
         stage('curl app') {
           steps {
-                   timeout(time: 10, unit: 'SECONDS') 
                    sh "curl http://10.252.7.84:8080/"
                 }
               }
