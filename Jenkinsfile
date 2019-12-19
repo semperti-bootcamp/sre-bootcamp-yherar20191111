@@ -76,13 +76,6 @@ pipeline {
                   sh "docker run -d -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
                 }
               }
-        
-        stage('verify container ') {
-          steps {
-              
-                  sh "docker ps"
-               }
-             }
     
         stage('curl app') {
           steps {
