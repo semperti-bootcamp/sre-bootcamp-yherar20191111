@@ -24,7 +24,8 @@
    
    ![CI-3 0](https://user-images.githubusercontent.com/57635156/71136437-9a67ad00-21e3-11ea-934d-9daacc520cf9.jpg)
  
-   4.- Creamos un slave y Lo configuramos, usamos las credenciales con las que nos conectamos por ssh:
+   4.- Creamos un slave y Lo configuramos, usamos las credenciales con las que nos conectamos a nuestro servidor por ssh:
+   NOTA: se recomienda crear las credenciales con el usuario root para no tener problemas con los permisos.
    
    ![CI-5](https://user-images.githubusercontent.com/57635156/71137047-9472cb80-21e5-11ea-91fd-7f7c7291b434.jpg)
 
