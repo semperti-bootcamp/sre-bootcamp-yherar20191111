@@ -54,10 +54,11 @@ pipeline {
             steps { 
               script {
                docker.withRegistry( '', registryCredential ) {
-               sh "docker push docker.io/yherar10/bootcamp:bc-ci-2.0"             
+                  sh "docker push docker.io/yherar10/bootcamp:bc-ci-2.0"             
              } 
            }
          }
+       }
          
         stage('stop old container and delete unused image') {
          steps {
@@ -76,10 +77,10 @@ pipeline {
               }
          
         stage('curl app') {
-        steps {
+          steps {
                  sh "curl http://10.252.7.84:8080/"
                 }
               }
             } 
           }  
-        }
+        
