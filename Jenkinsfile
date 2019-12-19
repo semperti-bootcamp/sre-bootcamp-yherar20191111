@@ -22,7 +22,7 @@ pipeline {
                   }
                }
         
-       stage('snapshot y deploy a nexus') {
+       stage('snapshot deploy') {
              steps {  
                     sh "mvn clean package --file Code/pom.xml"
                     sh "mvn versions:set -DnewVersion=10.1-SNAPSHOT --file Code/pom.xml"
@@ -30,7 +30,7 @@ pipeline {
                    }
                 }  
           
-       stage('release y deploy a nexus') {
+       stage('release deploy') {
              when {
                 // Ejecuta esta etapa solo cuando este "true"
                  expression { params.REQUESTED_ACTION == 'true' } 
@@ -42,7 +42,7 @@ pipeline {
                    }
                 } 
 
-       stage('build image docker more tag') {
+       stage('build image docker') {
            steps { 
                    sh "docker build -t bc-ci ."
                    sh "docker images"
@@ -60,7 +60,7 @@ pipeline {
          }
        }
          
-        stage('stop old container and delete unused image') {
+        stage('delete unused image') {
          steps {
               
                   sh "docker ps"
@@ -70,7 +70,7 @@ pipeline {
                }
              } 
          
-        stage('Pull and run new image') {
+        stage('run new image') {
          steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
                   sh "docker run -d -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
