@@ -50,7 +50,6 @@ pipeline {
                  }           
               }
             
-      
         stage('docker push') {
             steps { 
               script {
@@ -73,8 +72,7 @@ pipeline {
                   sh "docker rmi -f 11a95ec8e08c"
                }
              } 
-           
-         
+             
         stage('run new image') {
          steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
@@ -88,10 +86,10 @@ pipeline {
                     retry(100) {
                         sh 'curl http://10.252.7.84:8080/'
                     }
+                  }
                 }
-              }
-            } 
+              } 
+            }
           }
-        }
         
         
