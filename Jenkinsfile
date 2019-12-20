@@ -11,6 +11,10 @@ pipeline {
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
+         
+     def props = readJSON file: 'manefist.json'
+     assert props['attr1'] == 'One'
+     assert props.attr1 == 'One'
     }
   
     stages {
