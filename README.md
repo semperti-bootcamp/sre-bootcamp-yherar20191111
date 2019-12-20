@@ -4,7 +4,7 @@
 
     1.-Debe encontrarse dentro de un folder con el nombre bc-username
     2.-Debe ejecutarse el build cada vez que se realice un PR
-    3.-Debe contener al menos las etapas de descarga de imagen, ejecución de contenedor y prueba de acceso a la aplicación            mediante un curl y su output
+    3.-Debe contener al menos las etapas de descarga de imagen, ejecución de contenedor y prueba de acceso a la aplicación          mediante un curl y su output
   
 # Crear Pipeline de CD:
 
