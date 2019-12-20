@@ -8,11 +8,11 @@
   
 # Crear Pipeline de CD:
 
-  1.-Creamos otra pipelien 
+  1.-Creamos otra pipelien.
 
   ![CI-2 0](https://user-images.githubusercontent.com/57635156/71253685-5968b900-2307-11ea-92b3-230698240ef9.jpg)
 
-  2.- Actulizamos el Jenkisfile con las etapas de: descarga de imagen, ejecución de contenedor y prueba de acceso a la               aplicación mediante un curl y su output
+  2.- Actulizamos el Jenkisfile con las etapas de: descarga de imagen, ejecución de contenedor y prueba de acceso a la               aplicación mediante un curl.
   
   
        stage('delete unused image') {
