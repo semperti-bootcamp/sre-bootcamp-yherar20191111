@@ -1,7 +1,7 @@
 
 ## 4.--Java
 
-# Requisitos:
+# Descripción:
 
       1.-Se debe proveer un link de acceso a la aplicación
       2.-Debe quedar 100% funcional [crear un jornal (PDF), ver PDFs previos, etc]
