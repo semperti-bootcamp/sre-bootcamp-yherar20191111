@@ -77,23 +77,26 @@ pipeline {
                }
              } 
              
-        stage('run new image') {
-         steps {
-                  sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run -d -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
-                }
-              }
+       docker restart cd44fb497e3b
     
         stage('curl app') {
           steps {
                   timeout(time: 2, unit: 'MINUTES') {
                     retry(100) {
                         sh 'curl http://10.252.7.84:8080/'
-                    }
+                     }
+                   }
+                 }
+               }
+        stage('restart container') {
+           when {
+                // Ejecuta esta etapa solo cuando este "false"
+                 expression { params.REQUESTED_ACTION == 'false' } 
+                 }
+               
+         steps {
+                  sh "docker restart cd44fb497e3b"
                   }
                 }
-              } 
+              }  
             }
-          }
-        
-        
