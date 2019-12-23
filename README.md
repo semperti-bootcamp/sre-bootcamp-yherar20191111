@@ -1,6 +1,6 @@
 ## 6.--Docker-app
 
-# Requisitos:
+# Descripción:
 
     1.-Se debe proveer el Dockerfile y los archivos necesarios para generar la imagen
     2.- Debe quedar corriendo el container
