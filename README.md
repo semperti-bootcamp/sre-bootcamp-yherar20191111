@@ -1,7 +1,7 @@
 
 ## 3.--Ansible
 
-# Requisitos:
+# Descripción:
 	
      1.- Deben configurarse todos los elementos solicitados [Java 8, Maven, MySQL, etc.]
      2.-Deben proveerse screenshots validando los paquetes instalados 
