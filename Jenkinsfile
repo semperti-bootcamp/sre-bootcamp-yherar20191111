@@ -72,8 +72,6 @@ pipeline {
                   sh "docker rmi -f 11a95ec8e08c"
                }
              } 
-             
-       docker restart cd44fb497e3b
     
         stage('curl app') {
           steps {
@@ -88,10 +86,10 @@ pipeline {
            when {
                 // Ejecuta esta etapa solo cuando este "false"
                  expression { params.REQUESTED_ACTION == 'false' } 
-                 }
-               
-         steps {
-                  sh "docker restart cd44fb497e3b"
+                 }      
+                 steps {
+                    sh "docker ps"
+                    sh "docker restart cd44fb497e3b"
                   }
                 }
               }  
