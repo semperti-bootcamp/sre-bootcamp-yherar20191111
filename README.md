@@ -1,4 +1,4 @@
-# Week 01 - Assignments
+#  Week 01 - Assignments
 Repositorio para los assignments de la primer semana.
 
 # Java Application
