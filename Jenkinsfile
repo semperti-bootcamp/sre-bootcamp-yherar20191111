@@ -22,7 +22,7 @@
                   }
                }
         
-       stage('snapshot deploy a nexus') {
+       stage('snapshot deploy') {
              steps {  
                     sh "mvn clean package --file Code/pom.xml"
                     sh "mvn versions:set -DnewVersion=10.1-SNAPSHOT --file Code/pom.xml"
@@ -30,7 +30,7 @@
                    }
                 }  
           
-       stage('release deploy a nexus') {
+       stage('release deploy') {
              when {
                 // Ejecuta esta etapa solo cuando este "true"
                  expression { params.REQUESTED_ACTION == 'true' } 
