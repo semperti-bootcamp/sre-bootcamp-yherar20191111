@@ -2,7 +2,7 @@
   ## 5.--Nexus
   
   
-# Requisitos: 
+# Descripción: 
 
 	1.-Se debe cargar en Nexus un snapshot de la aplicación Java
 	2.-Se debe cargar en Nexus un release de la aplicación Java
