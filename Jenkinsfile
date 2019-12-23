@@ -15,7 +15,7 @@ pipeline {
   
     stages {
         
-       stage('Limpieza y unit test') {
+       stage('clean and unit test') {
             steps {
                    sh "mvn -B clean --file Code/pom.xml"
                    sh "mvn  test --file Code/pom.xml"
