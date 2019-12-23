@@ -1,6 +1,6 @@
 ## 2.--Terraform
 
-# Requisitos:
+# Descripción:
 
        1. La VM no debe tener más que 2 cores y 2 GB de RAM
        2. La VM debe tener CentOS7
