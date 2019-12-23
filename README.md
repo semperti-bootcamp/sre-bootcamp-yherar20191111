@@ -1,6 +1,6 @@
 ## 8.--Jenkins-CI
 
-# Requisitos:
+# Descripción:
 
     1.-Debe encontrarse dentro de un folder con el nombre bc-username
     2.-Debe ejecutarse el build cada vez que se realice un PR
