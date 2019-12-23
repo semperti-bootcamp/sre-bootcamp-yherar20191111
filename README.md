@@ -1,6 +1,6 @@
 ## 7.--Docker-Nexus
 
-# Requisitos:
+# Descripción:
  
     1.-La imagen de Docker debe quedar accesible desde Nexus
     2.-Se debe proveer el comando para subir una imagen a Nexus junto con un comando para descargar la imagen y correr el contenedor
