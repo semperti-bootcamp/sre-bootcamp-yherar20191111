@@ -3,6 +3,14 @@ pipeline {
     
 stages {
 
+      stage('test') {
+	  steps {
+		  sh "echo test"
+	        }
+             }
+	
+	
+	
         stage('staiging') {
             steps {
 		    script {
