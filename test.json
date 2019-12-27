@@ -1,0 +1,18 @@
+{  
+  "application":{  
+     "name":"app-java",
+     "version":"9.1",
+     "components":{  
+        "component":[  
+{  
+   "artifact":{  
+      "artifactType":"Tomcat",
+      "artifactName":"com.semperti.trial",
+      "artifactVersion":"9.1",
+      "artifactFileName": "journals-9.1.jar"
+              }
+           }
+        ]
+     }
+  }
+}
