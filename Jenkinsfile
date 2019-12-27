@@ -1,13 +1,6 @@
  pipeline {
     agent { node { label 'bc-yherar' } }
     
-     parameters {
-        choice(
-            choices: ['true' , 'false'],
-            description: '',
-            name: 'REQUESTED_ACTION')
-                }  
-
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
