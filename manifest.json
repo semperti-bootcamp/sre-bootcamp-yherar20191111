@@ -1,15 +1,15 @@
 {  
   "application":{  
      "name":"app-java",
-     "version":"2.0",
+     "version":"9.1",
      "components":{  
         "component":[  
 {  
    "artifact":{  
       "artifactType":"Tomcat",
       "artifactName":"com.semperti.trial",
-      "artifactVersion":"2.1",
-      "artifactFileName": "journals-10.1-SNAPSHOT.jar"
+      "artifactVersion":"9.1",
+      "artifactFileName": "journals-9.1.jar"
               }
            }
         ]
