@@ -4,7 +4,7 @@
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
-     APPVERSION = "10.2"
+     VERSION = "10.2"
     }
   
     stages {
