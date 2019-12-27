@@ -27,7 +27,7 @@
        stage('release deploy') {        
              steps {          
                     sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
-                    sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
+                    sh "mvn -B release:clean release:prepare release:perform --file Code/pomxml -DcheckModificationExcludeList=**  -DskipTests"  
                 } 
               }
 
