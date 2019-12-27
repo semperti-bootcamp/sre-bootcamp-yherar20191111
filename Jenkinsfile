@@ -4,7 +4,7 @@ pipeline {
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
-     APPVERSION = "10.2"
+     APPVERSION = "10.5"
     }
   
     stages {
