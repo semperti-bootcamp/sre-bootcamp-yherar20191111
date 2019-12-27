@@ -29,6 +29,7 @@ pipeline {
                    sh "mvn versions:set -DnewVersion=$env.APPVERSION -f Code/pom.xml"
                    sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
               }
+            }
 
        stage('build image docker more tag') {
            steps { 
@@ -49,5 +50,5 @@ pipeline {
        } 
      }      
    }
- } 
+
  
