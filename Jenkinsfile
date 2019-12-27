@@ -26,7 +26,7 @@ pipeline {
           
         stage('release deploy') {        
              steps {          
-                    sh "mvn versions:set -DnewVersion=$env.APPVERSION --file Code/pom.xml"
+                    sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
                     sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
               }
