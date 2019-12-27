@@ -26,9 +26,8 @@
           
        stage('release deploy') {        
              steps {          
-                    sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
-                    sh "mvn -B release:clean release:prepare release:perform --file Code/pomxml -DcheckModificationExcludeList=**  -DskipTests"  
-                } 
+                   sh "mvn versions:set -DnewVersion=$env.VERSION -f Code/pom.xml"
+                   sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
               }
 
        stage('build image docker more tag') {
