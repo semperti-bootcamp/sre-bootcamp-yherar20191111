@@ -31,7 +31,7 @@
 
    5.- Configuramos el Jenkinsfile con las etapas de configuracion: unit testing, snapshot, release, upload a Nexus del                artefacto de Maven y de la imagen de Docker. 
    
- ![final](https://user-images.githubusercontent.com/57635156/71138200-79a25600-21e9-11ea-9f3c-2d646b527a8c.jpg)
+ ![J1pro](https://user-images.githubusercontent.com/57635156/71526182-657aea80-28b4-11ea-8cb8-6ca6c4ecb698.jpg)
 
 
    
