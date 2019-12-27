@@ -1,16 +1,10 @@
 pipeline {
     agent { node { label 'bc-yherar' } }
     
-     parameters {
-        choice(
-            choices: ['true' , 'false'],
-            description: '',
-            name: 'REQUESTED_ACTION')
-                }  
-
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
+     APPVERSION = 10.2
     }
   
     stages {
@@ -30,17 +24,12 @@ pipeline {
                    }
                 }  
           
-       stage('release deploy') {
-             when {
-                // Ejecuta esta etapa solo cuando este "true"
-                 expression { params.REQUESTED_ACTION == 'true' } 
-                   }         
-              
+        stage('release deploy') {        
              steps {          
-                    sh "mvn versions:set -DnewVersion=10.2 --file Code/pom.xml"                
-                    sh "mvn clean deploy --file Code/pom.xml"
-                   }
+                    sh "mvn versions:set -DnewVersion=$env.APPVERSION --file Code/pom.xml"
+                    sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
+              }
 
        stage('build image docker') {
            steps { 
@@ -61,18 +50,20 @@ pipeline {
        }
          
         stage('delete unused image') {
-            when {
-                // Ejecuta esta etapa solo cuando este "true"
-                 expression { params.REQUESTED_ACTION == 'true' } 
-                 }
-                steps {             
+           steps {             
                   sh "docker ps"
-                  sh "docker stop 8d01b6a3e424"
                   sh "docker images"
                   sh "docker rmi -f 11a95ec8e08c"
                }
              } 
     
+        stage('run new image') {
+           steps {
+                  sh "docker pull yherar10/bootcamp:bc-ci-2.0"
+                  sh "docker run -d -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
+            }
+          }
+      
         stage('curl app') {
           steps {
                   timeout(time: 2, unit: 'MINUTES') {
@@ -82,15 +73,5 @@ pipeline {
                    }
                  }
                }
-        stage('restart container') {
-           when {
-                // Ejecuta esta etapa solo cuando este "false"
-                 expression { params.REQUESTED_ACTION == 'false' } 
-                 }      
-                 steps {
-                    sh "docker ps"
-                    sh "docker restart cd44fb497e3b"
-                  }
-                }
-              }  
-            }
+             } 
+           }
