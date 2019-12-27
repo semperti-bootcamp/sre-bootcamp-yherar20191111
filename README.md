@@ -16,13 +16,8 @@
   
   
        stage('delete unused image') {
-            when {
-                // Ejecuta esta etapa solo cuando este "true"
-                 expression { params.REQUESTED_ACTION == 'true' } 
-                 }
                 steps {             
                   sh "docker ps"
-                  sh "docker stop 8d01b6a3e424"
                   sh "docker images"
                   sh "docker rmi -f 11a95ec8e08c"
                }
