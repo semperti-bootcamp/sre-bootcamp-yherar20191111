@@ -1,10 +1,10 @@
- pipeline {
+pipeline {
     agent { node { label 'bc-yherar' } }
     
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
-     VERSION = "10.2"
+     APPVERSION = "10.2"
     }
   
     stages {
@@ -26,7 +26,7 @@
           
        stage('release deploy') {        
              steps {          
-                   sh "mvn versions:set -DnewVersion=$env.VERSION -f Code/pom.xml"
+                   sh "mvn versions:set -DnewVersion=$env.APPVERSION -f Code/pom.xml"
                    sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
               }
 
@@ -49,4 +49,5 @@
        } 
      }      
    }
+ } 
  
