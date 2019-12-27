@@ -13,7 +13,8 @@ stages {
             steps {
 		    script {
             	     manifest = readJSON file: 'manifest.json'
-			    nvironment = readJSON file: 'test.json'		            
+	             nvironment = readJSON file: 'test.json'
+			     
                           }                  
                         }
                       }
