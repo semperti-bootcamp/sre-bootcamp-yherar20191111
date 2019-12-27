@@ -11,6 +11,7 @@
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
+     APPVERSION = "10.2"
     }
   
     stages {
@@ -30,16 +31,10 @@
                    }
                 }  
           
-       stage('release deploy') {
-             when {
-                // Ejecuta esta etapa solo cuando este "true"
-                 expression { params.REQUESTED_ACTION == 'true' } 
-                   }         
-              
+       stage('release deploy') {        
              steps {          
-                    sh "mvn versions:set -DnewVersion=10.2 --file Code/pom.xml"                
-                    sh "mvn clean deploy --file Code/pom.xml"
-                   }
+                    sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
+                    sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
 
        stage('build image docker more tag') {
