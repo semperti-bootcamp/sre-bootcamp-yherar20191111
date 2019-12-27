@@ -4,7 +4,7 @@ pipeline {
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
-     APPVERSION = "10.5"
+     VERSION = "10.5"
     }
   
     stages {
@@ -26,7 +26,7 @@ pipeline {
           
        stage('release deploy') {        
              steps {          
-                   sh "mvn versions:set -DnewVersion=$env.APPVERSION -f Code/pom.xml"
+                   sh "mvn versions:set -DnewVersion=$env.VERSION -f Code/pom.xml"
                    sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
               }
             }
