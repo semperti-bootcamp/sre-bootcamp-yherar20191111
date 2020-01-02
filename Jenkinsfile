@@ -1,22 +1,21 @@
+def manifest
+def environment
+
 pipeline {
     agent { node { label 'bc-yherar' } }
-    
+	
 stages {
-
-      stage('test') {
-	  steps {
-		  sh "echo test"
-	        }
-             }
-		
-        stage('staiging') {
-            steps {
-		    script {
-            	     manifest = readJSON file: 'manifest.json'
-	             nvironment = readJSON file: 'test.json'
-			     
+	steps {
+            tage('Deploy to Staging') {
+            when {
+            branch 'staging' 
+            	}
+            	steps {
+                	script {
+                    	manifest = readJSON file: 'manifest.json'
                           }                  
                         }
                       }
                     }
                   }
+                 } 
