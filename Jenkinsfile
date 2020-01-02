@@ -5,14 +5,13 @@ pipeline {
     agent { node { label 'bc-yherar' } }
 	
 stages {
-	
-          steps {
-            tage('Deploy to Staging') {
-                	script {
-                    	manifest = readJSON file: 'manifest.json'
-                          }                  
-                        }
-                      }
-                    }
-                  }
+        stage('Deploy staging') {
+            steps {
+                 script {
+                    manifest = readJSON file: 'manifest.json'
+                 }
+               }
+             }
+           }
+         }  
                 
