@@ -1,18 +1,12 @@
-{  
-  "application":{  
-     "name":"app-java",
-     "version":"9.1",
-     "components":{  
-        "component":[  
-{  
-   "artifact":{  
-      "artifactType":"Tomcat",
-      "artifactName":"com.semperti.trial",
-      "artifactVersion":"9.1",
-      "artifactFileName": "journals-9.1.jar"
-              }
-           }
-        ]
-     }
-  }
+{
+    "app": {
+        "ip": "10.252.7.84
+	"port": "9090
+        "healthcheck_url": "http://10.252.7.178:9090
+	"name": "staging"
+    },
+    "db": {
+        "ip": "10.252.7.84
+	"port": "3306"
+    }
 }
