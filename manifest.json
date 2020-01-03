@@ -1,7 +1,7 @@
 {
-    "version": "9.1", 
+    "version": "2.0.0", 
     "repo": "yherar10/bootcamp:bc-ci-2.0",
     "artifacts": {
-        "app": "journals-9.1.jar"
+        "app": " /home/yherar/sre-bootcamp-yherar-11-11-2019/Code/workspace/bc-yherar/staging/Code/target/journals-9.1.jar"
     }
 }
