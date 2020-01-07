@@ -12,7 +12,7 @@ stages {
                     manifest = readJSON file: 'manifest.json'
                     environment = readJSON file: 'staging.json'
                     echo "Deploying the manifest ${manifest.version} to STAGING" 
-                    echo "Deploying APP artifact ${manifest.build-image} to STAGING host ${environment.api}"
+                    echo "Deploying APP artifact ${manifest.steps} to STAGING host ${environment.api}"
                 }
               }
             }
