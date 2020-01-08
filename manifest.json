@@ -1,6 +1,6 @@
 {
-    "version": "2.0.0", 
-    "repo": "yherar10/bootcamp:bc-ci-2.0",
+    "version": "9.1", 
+    "description": "Version de la app para staiging",
     "artifacts": {
         "app": " /home/yherar/sre-bootcamp-yherar-11-11-2019/Code/workspace/bc-yherar/staging/Code/target/journals-9.1.jar"
     }
