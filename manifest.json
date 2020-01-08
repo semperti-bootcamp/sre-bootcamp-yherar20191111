@@ -1,7 +1,10 @@
-{
+{   
+    
+    "prod"
     "version": "9.1", 
-    "description": "Version de la app para staiging",
+    "description": "Version de la app para prod",
     "artifacts": {
         "app": " /home/yherar/sre-bootcamp-yherar-11-11-2019/Code/workspace/bc-yherar/staging/Code/target/journals-9.1.jar"
-    }
+    }  
 }
+ 
