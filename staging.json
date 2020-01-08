@@ -1,39 +1,12 @@
 {
-
     "app": {
         "ip": "10.252.7.84",
-          "port": "9090",
+	"port": "9090",
         "healthcheck_url": "http://10.252.7.84:9090",
-          "name": "staging"
-          },
-          "db": {
-          "ip": "10.252.7.84",
-            "port": "3306"
- },
-
-    "steps": [
-    {
-        "name": "build-image",
-        "args": [
-            "build",
-            "-t",
-            "staigin-pro",
-            "."
-        ]
+	"name": "staging"
     },
-    {
-        "name": "run-image",
-        "args": [
-            "run",
-            "-d",
-            "-p",
-            "9090:9090",
-            "--network=host",
-            "staigin-pro"
-        ]
+    "db": {
+        "ip": "10.252.7.84",
+	"port": "3306"
     }
-    ],
-    "images": [
-        "staigin-pro"
-    ]
 }
