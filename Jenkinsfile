@@ -49,10 +49,10 @@ pipeline {
        }
          
         stage('delete unused image') {
-           steps {             
+           steps {  
                   sh "docker ps"
                   sh "docker images"
-                  sh "docker rmi -f 11a95ec8e08c"
+                  sh "docker image prune -a -f"
                }
              } 
     
