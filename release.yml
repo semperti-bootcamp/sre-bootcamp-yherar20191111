@@ -3,16 +3,18 @@
 - hosts: all
     
   vars:
-    project_path: /home/yherar/sre-bootcamp-yherar-11-11-2019/Code
+     VERSION: 9.1
+     project_path: /home/yherar/sre-bootcamp-yherar-11-11-2019/Code
+     snapshot: False
     
 
   tasks:
     - name: Creacion de version release
-      command: "mvn -f {{ project_path }}/pom.xml versions:set -DnewVersion={{ 9.1 }}"
-      
+      command: "mvn -f {{ project_path }}/pom.xml versions:set -DnewVersion={{ VERSION }}"
+      when: not snapshot 
       
     - name: Deploy a nexus
       command: "mvn -f {{ project_path }}/pom.xml clean deploy"
+
 ...
  
-
