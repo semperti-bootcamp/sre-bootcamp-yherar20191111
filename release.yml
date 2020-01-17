@@ -15,6 +15,5 @@
       
     - name: Deploy a nexus
       command: "mvn -f {{ project_path }}/pom.xml clean deploy"
-
 ...
  
