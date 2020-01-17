@@ -4,7 +4,7 @@ pipeline {
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
-     VERSION = "10.2.1"
+     VERSION = "9.1"
     }
   
     stages {
@@ -18,9 +18,8 @@ pipeline {
         
        stage('snapshot deploy') {
              steps {  
-                    sh "mvn clean package --file Code/pom.xml"
-                    sh "mvn versions:set -DnewVersion=10.1-SNAPSHOT --file Code/pom.xml"
-                    sh "mvn  clean deploy --file Code/pom.xml"
+                      sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT -f Code/pom.xml"
+                      sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
                    }
                 }  
           
