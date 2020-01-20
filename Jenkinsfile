@@ -9,9 +9,8 @@ pipeline {
   
   stages {
         
-	stage('environment staging') {
+	stage('environment staging') 
 	
-            }
             steps {
                 script {
                     manifest = readJSON file: 'manifest.json'
