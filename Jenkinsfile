@@ -6,9 +6,7 @@ pipeline {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
      VERSION = "9.2"    
-     def manifest
-     def environment    
-    
+ 
     }
   
   stages {
