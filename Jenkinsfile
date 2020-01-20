@@ -6,13 +6,13 @@ pipeline {
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
-     VERSION = "9.2"    
+     VERSION = "test-9.2"    
  
     }
   
   stages {
         
-	  stage('environment staging') {
+	  stage('environment prod') {
 	
             steps {
                 script {
@@ -70,10 +70,10 @@ pipeline {
                }
              } 
     
-        stage('Deploy staging') {
+        stage('Deploy prod') {
            steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run -d --name stagin-pro -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
+                  sh "docker run -d --name prod -p 8080:9090 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
             }
           }
       
