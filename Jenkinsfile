@@ -1,3 +1,4 @@
+def man
 
 pipeline {
     agent { node { label 'bc-yherar' } }
