@@ -1,3 +1,6 @@
+def manifest
+def environment
+
 pipeline {
     agent { node { label 'bc-yherar' } }
     
@@ -14,8 +17,8 @@ pipeline {
             steps {
                 script {
                     manifest = readJSON file: 'manifest.json'
-                    echo "Deploying the manifest ${manifest.version} to STAGING"
-                    echo "Deploying APP artifact ${manifest.artifacts.api} to STAGING host ${environment.api.host}"
+                    echo "Deploying the manifest ${manifest.VERSION} to STAGING"
+                    echo "Deploying APP artifact ${manifest.artifacts.app} to STAGING host ${environment.app.host}"
                 }
             }
         }
