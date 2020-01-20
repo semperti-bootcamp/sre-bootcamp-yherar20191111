@@ -3,7 +3,7 @@
     "description": "manifest for staging",
     "app": {
         "ip": "10.252.7.84",
-        "port": "8080",
+        "port": "9090",
         "name": "journuals"
     }
 }
