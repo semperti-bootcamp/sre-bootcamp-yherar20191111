@@ -1,12 +1,9 @@
 {
-  "app": {
-      "ip": "10.252.7.84",
-"port": "9090",
-      "healthcheck_url": "http://10.252.7.178:9090",
-"name": "app-java-prod"
-  },
-  "db": {
-      "ip": "10.252.7.84",
-"port": "3306"
-  }
+    "version": "9.1",
+    "description": "manifest for staging",
+    "app": {
+        "ip": "10.252.7.84",
+        "port": "8080",
+        "name": "journuals"
+    }
 }
