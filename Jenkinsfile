@@ -73,7 +73,7 @@ pipeline {
         stage('Deploy prod') {
            steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run -d --name prod -p 8080:9090 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
+                  sh "docker run -d -p 8080:9090 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
             }
           }
       
