@@ -7,9 +7,8 @@ pipeline {
      VERSION = "9.2"
     }
   
-    stages {
+  stages {
         
-	    
 	stage('environment staging') {
 	
             }
