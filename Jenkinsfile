@@ -1,4 +1,4 @@
-def man
+def manifest
 
 pipeline {
     agent { node { label 'bc-yherar' } }
