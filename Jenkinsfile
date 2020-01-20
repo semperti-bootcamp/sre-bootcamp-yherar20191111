@@ -1,6 +1,3 @@
-def manifest
-def environment
-
 pipeline {
     agent { node { label 'bc-yherar' } }
     
@@ -8,6 +5,8 @@ pipeline {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
      VERSION = "9.2"
+     def manifest
+     def environment 
     }
   
   stages {
