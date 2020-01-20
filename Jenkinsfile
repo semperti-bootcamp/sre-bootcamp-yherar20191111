@@ -18,7 +18,7 @@ pipeline {
                 script {
                     manifest = readJSON file: 'manifest.json'
                     echo "Deploying the manifest ${manifest.version} to STAGING"
-                    echo "Deploying APP artifact ${manifest.artifacts.app} to STAGING host ${environment.app.host}"
+                    echo "Deploying APP artifact ${manifest.app.ip} to STAGING host ${manifest.app.port}"
                 }
             }
         }
