@@ -9,7 +9,7 @@ pipeline {
   
   stages {
         
-	stage('environment staging') 
+	  stage('environment staging') {
 	
             steps {
                 script {
@@ -83,5 +83,6 @@ pipeline {
                    }
                  }
                }
-             } 
+             }
+           }
            
