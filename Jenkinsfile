@@ -74,7 +74,7 @@ pipeline {
         stage('Deploy staging') {
            steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run  -p 8080:8080 -it staging:test"
+                  sh "docker run  -p 8080:8080  staging:test"
             }
           }
       
