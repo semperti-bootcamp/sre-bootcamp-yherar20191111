@@ -43,6 +43,15 @@ pipeline {
                     sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
               }
+	  
+	  
+        stage('delete unused image') {
+           steps {  
+                  sh "docker ps"
+                  sh "docker images"
+                  sh "docker image prune -a -f"
+               }
+             } 
 
        stage('build image docker') {
            steps { 
@@ -62,14 +71,6 @@ pipeline {
          }
        }
          
-        stage('delete unused image') {
-           steps {  
-                  sh "docker ps"
-                  sh "docker images"
-                  sh "docker image prune -a -f"
-               }
-             } 
-    
         stage('Deploy staging') {
            steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
