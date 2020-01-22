@@ -46,7 +46,7 @@ pipeline {
 
        stage('build image docker') {
            steps { 
-                   sh "docker build -t bc-ci ."
+                   sh "docker build -t staging:test ."
                    sh "docker images"
                    sh "docker tag  11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-2.0"          
                  }           
@@ -73,7 +73,7 @@ pipeline {
         stage('Deploy staging') {
            steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run -d  -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
+                  sh "docker run -p 8080:8080 staging:test"
             }
           }
       
