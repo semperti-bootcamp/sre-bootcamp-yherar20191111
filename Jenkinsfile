@@ -30,15 +30,6 @@ pipeline {
                 } 
               }
 
-        stage('docker push') {
-            steps { 
-              script {
-               docker.withRegistry( '', registryCredential ) {
-                  sh "docker push docker.io/yherar10/bootcamp:bc-ci-2.0"             
-             } 
-           }
-         }
-       }
          
         stage('delete unused image') {
            steps {  
@@ -62,6 +53,16 @@ pipeline {
                   sh "docker run -d -p 8080:8080 docker.io/yherar10/bootcamp:bc-cd"
             }
           }
+        
+         stage('docker push') {
+            steps { 
+              script {
+               docker.withRegistry( '', registryCredential ) {
+                  sh "docker push docker.io/yherar10/bootcamp:bc-cd"             
+             } 
+           }
+         }
+       }
       
         stage('curl app') {
           steps {
