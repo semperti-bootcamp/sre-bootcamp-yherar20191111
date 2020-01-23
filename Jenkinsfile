@@ -1,3 +1,6 @@
+#!groovy
+
+
 def manifest
 
 pipeline {
@@ -18,8 +21,9 @@ pipeline {
                 script {
                     manifest = readJSON file: 'manifest.json'
                     echo "deploying environment staging ${manifest.environment_sg.version_sg} to STAGING"
-                    echo "deploying app artifact, name app ${manifest.environment_sg.name_sg} to STAGING host ${manifest.environment_sg.ip_sg.port_sg}" 
-	            echo "features data_base ${manifest.environment_sg.ip_db_sg.port_db}"
+                    echo "deploying app artifact, name app ${manifest.app_sg.name_sg}" 
+	            echo "to STAGING host ${manifest.app_sg.ip_sg}" 
+	            echo "features data_base ${manifest.data_base_sg.ip_db_sg.port_db}"
                 }
             }
         }
