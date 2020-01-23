@@ -46,7 +46,7 @@
       
       docker run -d -p 8080:8080 journals-1 
       
-      CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS         NAMES
+      CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                              NAMES
       
       9b1436b362a9        journals-1          "java -jar /root/u..."   5 seconds ago       Up 3 seconds        3306/tcp,      8081/tcp, 0.0.0.0:8080->8080/tcp   journals-1
 
