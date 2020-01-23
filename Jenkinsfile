@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     manifest = readJSON file: 'manifest.json'
-                    echo "deploying environment staging ${manifest.version} to STAGING"
+                    echo "deploying environment staging ${manifest.version_sg} to STAGING"
                     echo "deploying app artifact, name app ${manifest.app.name} to STAGING host ${manifest.app.ip.port}" 
 	            echo "features data_base ${manifest.ip_db.por_db}"
                 }
