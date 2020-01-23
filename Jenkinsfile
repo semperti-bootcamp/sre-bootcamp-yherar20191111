@@ -18,14 +18,14 @@ pipeline {
         
        stage('snapshot deploy') {
              steps {  
-                      sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT-f Code/pom.xml"
+                      sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT --file Code/pom.xml"
                       sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
                    }
                 }  
           
        stage('release deploy') {        
              steps {          
-                     sh "mvn versions:set -DnewVersion=$env.VERSION -f Code/pom.xml"
+                     sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
                      sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
               }
             }
