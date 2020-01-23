@@ -1,7 +1,7 @@
 {
 
   "environment staging": {
-    "version": "9.2",
+    "version_sg": "9.2",
     "description": "environment for staging using in manifest",
     "app" : {
       "name" : "journals-new",
@@ -14,7 +14,7 @@
     }
   },
   "environment prod": {
-    "version": "9.1",
+    "version-pd": "9.1",
     "descrption": "environment for prod using in manifest",
     "app": {
         "name" :"journals-old",
