@@ -30,14 +30,13 @@ pipeline {
                 } 
               }
 
-       stage('build image docker') {
+stage('build image docker more tag') {
            steps { 
-                   sh "docker build -t bc-ci ."
+                   sh "docker build --no-cache -t bc-cd  ."
                    sh "docker images"
-                   sh "docker tag  11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-2.0"          
+                   sh "docker tag  4302dd5b2e85 docker.io/yherar10/bootcamp:bc-cd"          
                  }           
-              }
-            
+              }      
         stage('docker push') {
             steps { 
               script {
