@@ -45,7 +45,6 @@ pipeline {
                   sh "docker ps"
                   sh "docker images"
                   sh "docker image prune -a -f"
-                  sh "docker stop $(docker ps -a -q)"
                }
              } 
         
