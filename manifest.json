@@ -1,9 +1,29 @@
 {
-    "version": "9.1",
-    "description": "manifest for staging",
-    "app": {
-        "ip": "10.252.7.84",
-        "port": "8080",
-        "name": "journuals"
+
+  "environment staging": {
+    "version": "9.2",
+    "description": "environment for staging using in manifest",
+    "app" : {
+      "name" : "journals-new",
+      "ip"   :"10.252.7.84",
+      "port" : "8080",
+    "data_base" : {
+      "ip":"10.252.7.84",
+      "port" : "3306"
+      }
     }
-}
+  },
+  "environment prod": {
+    "version": "9.1",
+    "descrption": "environment for prod using in manifest",
+    "app": {
+        "name" :"journals-old",
+        "ip"   :"10.252.7.84",
+        "port" :"9090",
+    "data_base" : {
+        "ip": "10.252.7.84",
+        "port": "3306"
+       }
+     }
+   }
+ } 
