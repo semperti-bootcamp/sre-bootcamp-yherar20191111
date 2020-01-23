@@ -34,7 +34,7 @@ pipeline {
            steps { 
                    sh "docker build --no-cache -t bc-ci  ."
                    sh "docker images"
-                   sh "docker tag  4302dd5b2e85 docker.io/yherar10/bootcamp:journals-1"          
+                   sh "docker tag  4302dd5b2e85 docker.io/yherar10/bootcamp:bc-ci"          
                  }           
               }
       
