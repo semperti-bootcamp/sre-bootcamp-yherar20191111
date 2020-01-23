@@ -32,9 +32,9 @@ pipeline {
 
        stage('build image docker more tag') {
            steps { 
-                   sh "docker build -t bc-ci ."
+                   sh "docker build --no-cache -t journals-1   ."
                    sh "docker images"
-                   sh "docker tag  11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-2.0"          
+                   sh "docker tag  4302dd5b2e85 docker.io/yherar10/bootcamp:journals-1"          
                  }           
               }
       
@@ -42,7 +42,7 @@ pipeline {
             steps { 
               script {
                docker.withRegistry( '', registryCredential ) {
-               sh "docker push docker.io/yherar10/bootcamp:bc-ci-2.0"             
+               sh "docker push docker.io/yherar10/bootcamp:journals-1"             
              } 
            }
          }
