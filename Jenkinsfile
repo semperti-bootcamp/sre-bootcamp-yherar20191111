@@ -30,13 +30,6 @@ pipeline {
                 } 
               }
 
-stage('build image docker more tag') {
-           steps { 
-                   sh "docker build --no-cache -t bc-cd  ."
-                   sh "docker images"
-                   sh "docker tag  4302dd5b2e85 docker.io/yherar10/bootcamp:bc-cd"          
-                 }           
-              }      
         stage('docker push') {
             steps { 
               script {
@@ -52,13 +45,22 @@ stage('build image docker more tag') {
                   sh "docker ps"
                   sh "docker images"
                   sh "docker image prune -a -f"
+                  sh "docker stop $(docker ps -a -q)"
                }
              } 
+        
+        stage('build image docker more tag') {
+           steps { 
+                   sh "docker build --no-cache -t bc-cd  ."
+                   sh "docker images"
+                   sh "docker tag  4302dd5b2e85 docker.io/yherar10/bootcamp:bc-cd"          
+                 }           
+              }      
     
         stage('run new image') {
            steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run -d -p 8080:8080 --network=host docker.io/yherar10/bootcamp:bc-ci-2.0"
+                  sh "docker run -d -p 8080:8080 docker.io/yherar10/bootcamp:bc-cd"
             }
           }
       
