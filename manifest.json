@@ -1,29 +1,31 @@
 {
 
-  "environment_staging": {
-    "version_sg": "9.2",
+  "environment_sg": {
+    "version_sg": "9.2"
+  },
     "description": "environment for staging using in manifest",
     "app_sg" : {
       "name_sg" : "journals-new",
       "ip_sg"   :"10.252.7.84",
-      "port_sg" : "8080",
+      "port_sg" : "8080"
+  },
     "data_base_sg" : {
       "ip_db_sg":"10.252.7.84",
       "port_db_sg" : "3306"
-      }
-    }
-  },
-  "environment prod": {
+      },
+
+  "environment-pd": {
     "version_pd": "9.1",
+  },
     "descrption": "environment for prod using in manifest",
     "app_pd": {
-        "name" :"journals-old",
+        "name_pd" :"journals-old",
         "ip_pd"   :"10.252.7.84",
-        "port_pd" :"9090",
+        "port_pd" :"9090"
+    },   
     "data_base_pd" : {
         "ip_db_pd": "10.252.7.84",
         "port_db_pd": "3306"
        }
      }
-   }
- } 
+   
