@@ -37,8 +37,7 @@
    
        docker push docker.io/yherar10/bootcamp:java-app
       
-       [root@prod-ocp-nodo3 sre-bootcamp-yherar-11-11-2019]# docker push
-       docker.io/yherar10/bootcamp:java-app  
+       [root@prod-ocp-nodo3 sre-bootcamp-yherar-11-11-2019]# docker push docker.io/yherar10/bootcamp:java-app  
        The push refers to a repository [docker.io/yherar10/bootcamp]
        e6f418d9027e: Pushed 
        6954dd0dea7d: Pushed 
