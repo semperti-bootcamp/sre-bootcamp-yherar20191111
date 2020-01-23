@@ -1,15 +1,15 @@
 {
 
-  "environment-staging": {
-    "version-sg": "9.2",
+  "environment_staging": {
+    "version_sg": "9.2",
     "description": "environment for staging using in manifest",
-    "app-sg" : {
-      "name-sg" : "journals-new",
-      "ip-sg"   :"10.252.7.84",
-      "port-sg" : "8080",
-    "data_base-sg" : {
-      "ip-db-sg":"10.252.7.84",
-      "port-db-sg" : "3306"
+    "app_sg" : {
+      "name_sg" : "journals-new",
+      "ip_sg"   :"10.252.7.84",
+      "port_sg" : "8080",
+    "data_base_sg" : {
+      "ip_db_sg":"10.252.7.84",
+      "port_db_sg" : "3306"
       }
     }
   },
