@@ -64,7 +64,7 @@ pipeline {
            steps { 
                    sh "docker build -t staging:test ."
                    sh "docker images"
-                   sh "docker tag  11a95ec8e08c docker.io/yherar10/bootcamp:bc-ci-2.0"          
+                   sh "docker tag  11a95ec8e08c docker.io/yherar10/bootcamp:staging"          
                  }           
               }
             
@@ -72,7 +72,7 @@ pipeline {
             steps { 
               script {
                docker.withRegistry( '', registryCredential ) {
-                  sh "docker push docker.io/yherar10/bootcamp:bc-ci-2.0"             
+                  sh "docker push docker.io/yherar10/bootcamp:staging"             
              } 
            }
          }
