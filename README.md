@@ -30,15 +30,15 @@
    - tag:                                                       (app-java-v-1.0)
 	
 
-	docker tag  e0b80668a18f docker.io/yherar10/bootcamp:app-java-v-1.0
+	docker tag  4302dd5b2e85 docker.io/yherar10/bootcamp:java-app
        
       
    4.- Hacemos docker push a nuestro repositorio:
    
-       docker push docker.io/yherar10/bootcamp:app-java-v-1.0
+       docker push docker.io/yherar10/bootcamp:java-app
       
        [root@prod-ocp-nodo3 sre-bootcamp-yherar-11-11-2019]# docker push
-       docker.io/yherar10/bootcamp:app-java-v-1.0   
+       docker.io/yherar10/bootcamp:java-app  
        The push refers to a repository [docker.io/yherar10/bootcamp]
        e6f418d9027e: Pushed 
        6954dd0dea7d: Pushed 
@@ -46,16 +46,16 @@
        ceaf9e1ebef5: Pushed 
        9b9b7f3d56a0: Pushed 
        f1b5933fe4b5: Pushed 
-       app-java-v-1.0: digest:
+       app-java-app: digest:
        sha256:1ba0be141a8c342051a75696385d0bbcf649878b3811d18c83f9a64c7c855f6a size: 1577
        
  - Para descargar la imagen:
    
-       docker pull yherar10/bootcamp:app-java-v-1.0
+       docker pull yherar10/bootcamp:java-app
        
  - Para correr la imagen: 
   
-       docker run -d -p 8080:8080 --network=host docker.io/yherar10/bootcamp:app-java-v-1.0 
+       docker run -d -p 8080:8080 docker.io/yherar10/bootcamp:java-app
        
   Link del repositorio dockerhub:
   
