@@ -32,7 +32,7 @@ pipeline {
         
        stage('snapshot deploy') {
              steps {  
-                      sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT -f Code/pom.xml"
+                      sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT --file Code/pom.xml"
                       sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
                    }
                 }  
