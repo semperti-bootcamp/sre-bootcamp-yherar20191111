@@ -59,6 +59,8 @@ pipeline {
 
        stage('build environments') {
            steps { 
+		script {
+	           docker.withRegistry( '', registryCredential ) {
                    sh "docker build -t staging ."
                    sh "docker images"
                    sh "docker tag  staging docker.io/yherar10/bootcamp:staging" 
@@ -67,6 +69,7 @@ pipeline {
 		   sh "docker tag staging docker.io/yherar10/bootcamp:prod"
                  }           
               }
+	   }		   
             
         stage('docker push') {
             steps { 
