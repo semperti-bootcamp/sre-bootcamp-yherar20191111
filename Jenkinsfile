@@ -83,63 +83,45 @@ pipeline {
          }
        }
 	   
-	  stage('environment staging') {
+	  stage('deploy environment staging') {
 	      steps {
                 script {
                     manifest = readJSON file: 'manifest.json'
+	            // features evironment prod
                     echo "deploying environment staging ${manifest.environment_sg.version_sg} to Staging"
                     echo "deploying app artifact, name app ${manifest.app_sg.name_sg}" 
 	            echo "Staging host ${manifest.app_sg.ip_sg}"
 		    echo "port Staging ${manifest.app_sg.port_sg}"
 	            echo "features data_base ${manifest.data_base_sg.ip_db_sg}"
-	            echo "por data base app ${manifest.data_base_sg.port_db_sg}"
+	            echo "port data base app ${manifest.data_base_sg.port_db_sg}"
+		    //determine chages
+		    sh "git diff HEAD manifest.json"
+		    // deploy evironment
+	            sh "docker pull yherar10/bootcamp:staging"
+                    sh "docker run -d --name bc-staging -p 8080:8080 docker.io/yherar10/bootcamp:staging"
                 }
             }
         }
-        
-	  stage('Deploy staging') {
-        	steps {
-		    script {
-		  manifest = readJSON file: 'manifest.json'
-	          echo " ${manifest.environment_sg.version_sg} to Staging"
-		  echo "deploy staging if there is a change"
-		  sh "git diff HEAD manifest.json"
-		  // there are no changes
-                  sh "docker pull yherar10/bootcamp:bc-cd"
-                  sh "docker run -d --name staging-1 -p 8080:8080  staging"
-              } 
-            }
-          }
-	    
-	  stage('environment prod') {
+            
+	  stage('deploy environment prod') {
 	      steps {
                 script {
                     manifest = readJSON file: 'manifest.json'
-                    echo "deploying environment staging ${manifest.environment_pd.version_pd} to prd"
-                    echo "deploying app artifact, name app ${manifest.app_pd.name_pd}" 
+		    // features evironment prod
+                    echo "environment staging ${manifest.environment_pd.version_pd} to prod"
+                    echo "app artifact, name app ${manifest.app_pd.name_pd}" 
 	            echo "prod host ${manifest.app_pd.ip_pd}"
 		    echo "port Staging ${manifest.app_pd.port_pd}"
 	            echo "features data_base ${manifest.data_base_pd.ip_db_pd}"
 	            echo "port data base app ${manifest.data_base_pd.port_db_pd}"
+		    //determine chages
+		    sh "git diff HEAD manifest.json"
+		    // deploy evironment
+		    sh "docker pull yherar10/bootcamp:prod"
+                    sh "docker run -d --name bc-staging -p 9090:8080 docker.io/yherar10/bootcamp:prod"
                 }
             }
         }
-	  
-	   stage('Deploy prod') {
-           
-		
-		steps {
-		    script {
-		  manifest = readJSON file: 'manifest.json'
-	          echo " ${manifest.environment_pd.version_pd} to Staging"
-		  echo "deploy staging if there is a change"
-		  sh "git diff HEAD manifest.json"
-		  // there are no changes
-                  sh "docker pull yherar10/bootcamp:bc-cd"
-                  sh "docker run -d --name prod-1 -p 9090:8080 prod3"
-              } 
-            }
-          }
 	  
         stage('curl staging') {
           steps {
