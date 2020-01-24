@@ -47,10 +47,12 @@ pipeline {
 	 
 	  stage('stop old container'){
 	  steps {
-		  sh 'docker ps -f --all -q | xargs --no-run-if-empty docker container stop'
-                  sh 'docker container ls -a - -q | xargs -r docker container rm'
+	      script {
+		       // stop all container
+		       sh "docker stop $(docker ps -q)"
 	        }
 	      } 
+	    }		  
 	  
         stage('delete unused image') {
            steps {  
