@@ -96,7 +96,7 @@ pipeline {
 		    //determine chages
 		    sh "git diff HEAD manifest.json"
 		    // deploy evironment
-	            sh "docker pull yherar10/bootcamp:staging"
+	            sh "docker pull docker.io/yherar10/bootcamp:staging"
                     sh "docker run -d --name bc-staging -p 8080:8080 docker.io/yherar10/bootcamp:staging"
                 }
             }
@@ -116,7 +116,7 @@ pipeline {
 		    //determine chages
 		    sh "git diff HEAD manifest.json"
 		    // deploy evironment
-		    sh "docker pull yherar10/bootcamp:prod"
+		    sh "docker pull docker.io/yherar10/bootcamp:prod"
                     sh "docker run -d --name bc-prod -p 9090:8080 docker.io/yherar10/bootcamp:prod"
                 }
             }
