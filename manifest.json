@@ -13,7 +13,7 @@
     "port_db_sg" : "3306"
 },
   "environment_pd": {
-    "version_pd": "9.1"
+    "version_pd": "9.1.1"
 },
   "descrption": "environment for prod using in manifest",
     "app_pd": {
