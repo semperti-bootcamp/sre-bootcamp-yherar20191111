@@ -45,27 +45,26 @@ pipeline {
               }
 	    }		
 	 
-	  stage('stop old container'){
+	  stage('docker cleaning'){
 	  steps {
-	               sh '''#!/bin/bash
-		       docker stop $(docker ps -q)
+	          sh '''#!/bin/bash
+		  //stop old conatiner
+		  docker stop $(docker ps -q)
+		  //delete inused images
+		  docker images
+		  docker image prune -a -f
 		        '''
 	             } 
 	           }		  
-	  
-        stage('delete unused image') {
-           steps {  
-                  sh "docker ps"
-                  sh "docker images"
-                  sh "docker image prune -a -f"
-               }
-             } 
 
-       stage('build image docker') {
+       stage('build environments') {
            steps { 
                    sh "docker build -t staging ."
                    sh "docker images"
-                   sh "docker tag  staging docker.io/yherar10/bootcamp:staging"          
+                   sh "docker tag  staging docker.io/yherar10/bootcamp:staging" 
+		   sh "docker build -t prod ."
+		   sh "docker images"
+		   sh "docker tag staging docker.io/yherar10/bootcamp:prod"
                  }           
               }
             
@@ -73,7 +72,8 @@ pipeline {
             steps { 
               script {
                docker.withRegistry( '', registryCredential ) {
-                  sh "docker push docker.io/yherar10/bootcamp:staging"             
+                  sh "docker push docker.io/yherar10/bootcamp:staging"  
+		  sh "docker push docker.io/yherar10/bootcamp:prod"
              } 
            }
          }
@@ -102,7 +102,7 @@ pipeline {
 		  sh "git diff HEAD manifest.json"
 		  // there are no changes
                   sh "docker pull yherar10/bootcamp:bc-cd"
-                  sh "docker run -d --name staging-1 -p 8080:8080  staging:test"
+                  sh "docker run -d --name staging-1 -p 8080:8080  staging"
               } 
             }
           }
@@ -122,7 +122,7 @@ pipeline {
         }
 	  
 	   stage('Deploy prod') {
-           when { changelog '.*^\\[DEPENDENCY\\] .+$' }
+           
 		
 		steps {
 		    script {
@@ -132,16 +132,26 @@ pipeline {
 		  sh "git diff HEAD manifest.json"
 		  // there are no changes
                   sh "docker pull yherar10/bootcamp:bc-cd"
-                  sh "docker run -d --name prd-1 -p 9090:8080  staging:test"
+                  sh "docker run -d --name prod-1 -p 9090:8080 prod3"
               } 
             }
           }
 	  
-        stage('curl app') {
+        stage('curl staging') {
           steps {
                   timeout(time: 2, unit: 'MINUTES') {
                     retry(100) {
                         sh 'curl http://10.252.7.84:8080/'
+		    }
+		  }
+	        }
+	      }	
+	 		    
+         stage('curl prod') {
+         steps {
+                  timeout(time: 2, unit: 'MINUTES') {
+                    retry(100) {
+                        sh 'curl http://10.252.7.84:9090/'
                      }
                    }
                  }
