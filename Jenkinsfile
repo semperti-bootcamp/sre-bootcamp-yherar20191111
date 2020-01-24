@@ -47,12 +47,11 @@ pipeline {
 	 
 	  stage('stop old container'){
 	  steps {
-	               sh '''#!/bin/bash
-		       // stop all container
+	               sh '''
 		       sh "docker stop $(docker ps -q)"
-		       '''
-	      } 
-	    }		  
+		        '''
+	             } 
+	           }		  
 	  
         stage('delete unused image') {
            steps {  
