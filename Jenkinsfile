@@ -25,7 +25,7 @@ pipeline {
 		       // new version staging
 		       manifest = readJSON file: 'manifest.json'
 		       echo "generate new version staging ${manifest.environment_sg.version_sg}"
-			sh "mvn versions:set -DnewVersion=${env.environment_sg.version_sg}-SNAPSHOT --file Code/pom.xml"
+			sh "mvn versions:set -DnewVersion=${manifest.environment_sg.version_sg}-SNAPSHOT --file Code/pom.xml"
                        sh "mvn clean deploy --file Code/pom.xml -DskipTests"
                    }
                 } 
@@ -37,7 +37,7 @@ pipeline {
 	            // new version release 
                     manifest = readJSON file: 'manifest.json'
 		    echo "generate new version release ${manifest.environment_pd.version_pd}"
-                    sh "mvn versions:set -DnewVersion=$env.environment_pd.version_pd --file Code/pom.xml"
+	            sh "mvn versions:set -DnewVersion=${manifest.environment_pd.version_pd} --file Code/pom.xml"
                     sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
               }
