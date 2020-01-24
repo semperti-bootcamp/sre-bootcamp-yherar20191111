@@ -50,7 +50,7 @@ pipeline {
         stage('run new image') {
            steps {
                   sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run -d -p 8080:8080 docker.io/yherar10/bootcamp:bc-cd"
+                  sh "docker run -d --name journals-1 -p 8080:8080 docker.io/yherar10/bootcamp:bc-cd"
             }
           }
         
