@@ -24,22 +24,27 @@ pipeline {
         
        stage('snapshot deploy') {
              steps {  
+		 script{
 		       // new version staging
+		       manifest = readJSON file: 'manifest.json'
 		       echo "generate new version staging ${manifest.environment_sg.version_sg}"
                        sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT --file Code/pom.xml"
                        sh "mvn clean deploy --file Code/pom.xml -DskipTests"
                    }
-                }  
+                } 
+             } 
           
         stage('release deploy') {        
              steps { 
-		     
-		    // new version release
-		    echo "generate new version release ${manifest.environment_sg.version_sg}"
+		 script {
+	            // new version release 
+                    manifest = readJSON file: 'manifest.json'
+		    echo "generate new version release ${manifest.environment_pd.version_pd}"
                     sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
                     sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
               }
+	    }		
 	 
 	  stage('stop old container'){
 	  steps {
