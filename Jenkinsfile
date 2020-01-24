@@ -69,7 +69,8 @@ pipeline {
 		   sh "docker tag staging docker.io/yherar10/bootcamp:prod"
                  }           
               }
-	   }		   
+	   }
+         }
             
         stage('docker push') {
             steps { 
