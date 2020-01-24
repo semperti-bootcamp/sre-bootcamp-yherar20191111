@@ -40,4 +40,14 @@
           }
          }       
          
+   2.- Vemos los abientes creados:
+   
+   ![evironments](https://user-images.githubusercontent.com/57635156/73101180-e0dcb580-3ecd-11ea-9f71-e6ddfe85add2.jpg)
+   
+   
+   3.- Pipeline Success
+   
+   ![gitops](https://user-images.githubusercontent.com/57635156/73101464-74ae8180-3ece-11ea-8495-57e4b2b1395c.jpg)
+
+
          
