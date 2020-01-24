@@ -53,7 +53,7 @@ pipeline {
 		  //delete inused images
 		  docker images
 		  docker image prune -a -f
-		  docker container prune -a -f
+		  docker container prune -f
 		        '''
 	             } 
 	           }		  
