@@ -140,7 +140,7 @@ pipeline {
           steps {
                   timeout(time: 2, unit: 'MINUTES') {
                     retry(100) {
-                        sh 'curl http://10.252.7.84:9090/'
+                        sh 'curl http://10.252.7.84:8080/'
                      }
                    }
                  }
