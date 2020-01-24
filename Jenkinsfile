@@ -1,5 +1,4 @@
- #!groovy
-
+#!groovy
 
 def manifest
 
