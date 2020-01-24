@@ -29,7 +29,8 @@ pipeline {
         }
         
 	  stage('Deploy staging') {
-           when { changelog '.*^\\[DEPENDENCY\\] .+$' }
+              when { 
+		environment name: ".environment_sg", value: "YES"
 		
 		steps {
 		    script {
