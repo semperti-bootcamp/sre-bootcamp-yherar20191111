@@ -66,7 +66,7 @@ pipeline {
            steps { 
                    sh "docker build -t staging ."
                    sh "docker images"
-                   sh "docker tag  4302dd5b2e85  docker.io/yherar10/bootcamp:staging"          
+                   sh "docker tag  staging docker.io/yherar10/bootcamp:staging"          
                  }           
               }
             
