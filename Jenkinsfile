@@ -47,8 +47,8 @@ pipeline {
 	 
 	  stage('stop old container'){
 	  steps {
-		  sh 'docker ps -f name=journals-1 -q | xargs --no-run-if-empty docker container stop'
-                  sh 'docker container ls -a -fname=journals-1 -q | xargs -r docker container rm'
+		  sh 'docker ps -f --all -q | xargs --no-run-if-empty docker container stop'
+                  sh 'docker container ls -a - -q | xargs -r docker container rm'
 	        }
 	      } 
 	  
@@ -64,7 +64,7 @@ pipeline {
            steps { 
                    sh "docker build -t staging ."
                    sh "docker images"
-                   sh "docker tag  4302dd5b2e85  docker.io/yherar10/bootcamp:staging-1"          
+                   sh "docker tag  4302dd5b2e85  docker.io/yherar10/bootcamp:staging"          
                  }           
               }
             
