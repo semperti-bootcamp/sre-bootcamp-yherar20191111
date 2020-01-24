@@ -1,6 +1,5 @@
 #!groovy
 
-
 def manifest
 
 pipeline {
