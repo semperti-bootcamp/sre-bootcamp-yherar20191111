@@ -1,4 +1,5 @@
-#!groovy
+ #!groovy
+
 
 def manifest
 
@@ -93,9 +94,7 @@ pipeline {
         }
         
 	  stage('Deploy staging') {
-           when  when { changeRequest() }
-		
-		steps {
+        	steps {
 		    script {
 		  manifest = readJSON file: 'manifest.json'
 	          echo " ${manifest.environment_sg.version_sg} to Staging"
@@ -123,7 +122,7 @@ pipeline {
         }
 	  
 	   stage('Deploy prod') {
-        
+           when { changelog '.*^\\[DEPENDENCY\\] .+$' }
 		
 		steps {
 		    script {
@@ -149,5 +148,4 @@ pipeline {
                }
              }
            }
-         
         
