@@ -41,8 +41,7 @@
       REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
       journals-1         latest              4302dd5b2e85      4 hours ago         156 MB
       
-  6.- Corremos la imagen en segundo plano (-d), la mapeamos en el puerto 8080 (-p) y le asignamos la misma IP 
-      de nuestro host (--network=host):
+  6.- Corremos la imagen en segundo plano (-d), la mapeamos en el puerto 8080 (-p).
       
       docker run -d -p 8080:8080 journals-1 
       
