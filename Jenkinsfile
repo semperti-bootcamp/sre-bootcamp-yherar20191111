@@ -118,7 +118,7 @@ pipeline {
 		    sh "git diff HEAD manifest.json"
 		    // deploy evironment
 		    sh "docker pull yherar10/bootcamp:prod"
-                    sh "docker run -d --name bc-staging -p 9090:8080 docker.io/yherar10/bootcamp:prod"
+                    sh "docker run -d --name bc-prod -p 9090:8080 docker.io/yherar10/bootcamp:prod"
                 }
             }
         }
