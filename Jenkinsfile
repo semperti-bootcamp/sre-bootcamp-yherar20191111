@@ -39,8 +39,12 @@ pipeline {
         
        stage('snapshot deploy') {
              steps {  
-                      sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT --file Code/pom.xml"
-                      sh "mvn clean deploy -f Code/pom.xml -DskipTests" 
+		       echo "generate new version staging ${manifest.environment_sg.version_sg}"
+                       sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT --file Code/pom.xml"
+                       sh "mvn clean deploy -f Code/pom.xml -DskipTests"
+		       echo "deploy staging if there is a change"
+		       sh "git diff HEAD manifest.json"
+		       // there are no changes
                    }
                 }  
           
@@ -50,7 +54,13 @@ pipeline {
                     sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
               }
-	  
+	 
+	  stage('stop old container'){
+	  steps {
+		  sh 'docker ps -f name=journals-1 -q | xargs --no-run-if-empty docker container stop'
+                  sh 'docker container ls -a -fname=journals-1 -q | xargs -r docker container rm'
+	        }
+	      } 
 	  
         stage('delete unused image') {
            steps {  
@@ -79,9 +89,18 @@ pipeline {
        }
          
         stage('Deploy staging') {
-           steps {
-                  sh "docker pull yherar10/bootcamp:bc-ci-2.0"
-                  sh "docker run  -p 8080:8080  staging:test"
+           when { changelog '.*^\\[DEPENDENCY\\] .+$' }
+		
+		steps {
+		   
+		  manifest = readJSON file: 'manifest.json'
+	          echo " ${manifest.environment_sg.version_sg} to Staging"
+		  echo "deploy staging if there is a change"
+		  sh "git diff HEAD manifest.json"
+		  // there are no changes
+                  sh "docker pull yherar10/bootcamp:bc-cd"
+                  sh "docker run -d --name staging-1 -p 8080:8080  staging:test"
+		 
             }
           }
       
