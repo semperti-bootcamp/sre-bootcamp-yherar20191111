@@ -8,7 +8,8 @@
          
  # Gitops:
  
- 1.- Creamos un manifest.jso con las caracteristicas de la aplicacion:
+ 1.- Creamos un manifest.json con las caracteristicas de la aplicacion:
+     estructura .jso: http://www.json.org/json-it.html
  
                         
          {
