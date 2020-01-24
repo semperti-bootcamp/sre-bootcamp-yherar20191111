@@ -14,71 +14,6 @@ pipeline {
     }
   
   stages {
-            	    
-       stage('clean and unit test') {
-            steps {
-                   sh "mvn -B clean --file Code/pom.xml"
-                   sh "mvn  test --file Code/pom.xml"
-                  }
-               }
-        
-       stage('snapshot deploy') {
-             steps {  
-		 script{
-		       // new version staging
-		       manifest = readJSON file: 'manifest.json'
-		       echo "generate new version staging ${manifest.environment_sg.version_sg}"
-                       sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT --file Code/pom.xml"
-                       sh "mvn clean deploy --file Code/pom.xml -DskipTests"
-                   }
-                } 
-             } 
-          
-        stage('release deploy') {        
-             steps { 
-		 script {
-	            // new version release 
-                    manifest = readJSON file: 'manifest.json'
-		    echo "generate new version release ${manifest.environment_pd.version_pd}"
-                    sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
-                    sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
-                } 
-              }
-	    }		
-	 
-	  stage('stop old container'){
-	  steps {
-		  sh 'docker ps -f name=journals-1 -q | xargs --no-run-if-empty docker container stop'
-                  sh 'docker container ls -a -fname=journals-1 -q | xargs -r docker container rm'
-	        }
-	      } 
-	  
-        stage('delete unused image') {
-           steps {  
-                  sh "docker ps"
-                  sh "docker images"
-                  sh "docker image prune -a -f"
-               }
-             } 
-
-       stage('build image docker') {
-           steps { 
-                   sh "docker build -t staging:test ."
-                   sh "docker images"
-                   sh "docker tag  4302dd5b2e85  docker.io/yherar10/bootcamp:staging"          
-                 }           
-              }
-            
-        stage('docker push') {
-            steps { 
-              script {
-               docker.withRegistry( '', registryCredential ) {
-                  sh "docker push docker.io/yherar10/bootcamp:staging"             
-             } 
-           }
-         }
-       }
-	   
 	  stage('environment staging') {
 	      steps {
                 script {
@@ -124,7 +59,7 @@ pipeline {
         }
 	  
 	   stage('Deploy prod') {
-           when { changelog '.*^\\[DEPENDENCY\\] .+$' }
+           when { changelog '.*^\\[manifest.json\\] .+$' }
 		
 		steps {
 		    script {
