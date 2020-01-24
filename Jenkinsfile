@@ -47,10 +47,10 @@ pipeline {
 	 
 	  stage('stop old container'){
 	  steps {
-	      script {
+	               sh '''#!/bin/bash
 		       // stop all container
 		       sh "docker stop $(docker ps -q)"
-	        }
+		       '''
 	      } 
 	    }		  
 	  
