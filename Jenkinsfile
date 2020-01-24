@@ -30,7 +30,7 @@ pipeline {
         
 	  stage('Deploy staging') {
               when { 
-		      environment name: ".environment_sg", value: "YES"}
+		      environment name: "DEPLOY_TO", value: "staging"}
 		
 		steps {
 		    script {
