@@ -62,9 +62,9 @@ pipeline {
 
        stage('build image docker') {
            steps { 
-                   sh "docker build -t staging:test ."
+                   sh "docker build -t staging ."
                    sh "docker images"
-                   sh "docker tag  4302dd5b2e85  docker.io/yherar10/bootcamp:staging"          
+                   sh "docker tag  4302dd5b2e85  docker.io/yherar10/bootcamp:staging-1"          
                  }           
               }
             
