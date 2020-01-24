@@ -12,7 +12,7 @@
     "ip_db_sg": "10.252.7.84",
     "port_db_sg" : "3306"
 },
-  "environment-pd": {
+  "environment_pd": {
     "version_pd": "9.1"
 },
   "descrption": "environment for prod using in manifest",
