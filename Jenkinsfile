@@ -25,7 +25,7 @@ pipeline {
 		       // new version staging
 		       manifest = readJSON file: 'manifest.json'
 		       echo "generate new version staging ${manifest.environment_sg.version_sg}"
-                       sh "mvn versions:set -DnewVersion=$env.environment_sg.version_sg-SNAPSHOT --file Code/pom.xml"
+			sh "mvn versions:set -DnewVersion=${env.environment_sg.version_sg}-SNAPSHOT --file Code/pom.xml"
                        sh "mvn clean deploy --file Code/pom.xml -DskipTests"
                    }
                 } 
