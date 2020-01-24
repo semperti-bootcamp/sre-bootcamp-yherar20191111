@@ -8,8 +8,6 @@ pipeline {
      environment {
      registry = "yherar10/bootcamp"
      registryCredential = "dockerhub"
-     VERSION = "9.2"    
- 
     }
   
   stages {
@@ -22,38 +20,38 @@ pipeline {
                }
         
        stage('snapshot deploy') {
-             steps {  
-		 script{
+            steps {  
+		script{
 		       // new version staging
 		       manifest = readJSON file: 'manifest.json'
 		       echo "generate new version staging ${manifest.environment_sg.version_sg}"
-                       sh "mvn versions:set -DnewVersion=$env.VERSION-SNAPSHOT --file Code/pom.xml"
+                       sh "mvn versions:set -DnewVersion=$env.environment_sg.version_sg-SNAPSHOT --file Code/pom.xml"
                        sh "mvn clean deploy --file Code/pom.xml -DskipTests"
                    }
                 } 
              } 
           
-        stage('release deploy') {        
-             steps { 
-		 script {
+       stage('release deploy') {        
+            steps { 
+		script {
 	            // new version release 
                     manifest = readJSON file: 'manifest.json'
 		    echo "generate new version release ${manifest.environment_pd.version_pd}"
-                    sh "mvn versions:set -DnewVersion=$env.VERSION --file Code/pom.xml"
+                    sh "mvn versions:set -DnewVersion=$env.environment_pd.version_pd --file Code/pom.xml"
                     sh "mvn clean deploy --file  Code/pom.xml -DskipTests" 
                 } 
               }
 	    }		
 	 
-	  stage('docker cleaning'){
-	  steps {
-	          sh '''#!/bin/bash
-		  //stop old conatiner
-		  docker stop $(docker ps -q)
-		  //delete inused images
-		  docker images
-		  docker image prune -a -f
-		  docker container prune -f
+       stage('docker cleaning'){
+	   steps {
+	           sh '''#!/bin/bash
+		   //stop old conatiner
+		   docker stop $(docker ps -q)
+		   //delete inused images
+		   docker images
+		   docker image prune -a -f
+		   docker container prune -f
 		        '''
 	             } 
 	           }		  
