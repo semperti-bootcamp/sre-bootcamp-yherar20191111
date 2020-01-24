@@ -1,21 +1,5 @@
 #!groovy
 
-def manifest
-
-pipeline {
-    agent { node { label 'bc-yherar' } }
-    
-     environment {
-     registry = "yherar10/bootcamp"
-     registryCredential = "dockerhub"
-     VERSION = "9.2"    
- 
-    }
-  
-  stages {
-	  
-	  #!groovy
-
 
 def manifest
 
@@ -166,5 +150,5 @@ pipeline {
                }
              }
            }
-         }
-       }  
+         
+        
