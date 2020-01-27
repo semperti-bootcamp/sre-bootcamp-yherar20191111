@@ -9,7 +9,7 @@
  # Gitops:
  
  1.- Creamos un manifest.json con las caracteristicas de la aplicacion:
-   - Estructura .jso: http://www.json.org/json-it.html
+   - Estructura .json: http://www.json.org/json-it.html
  
                         
          {
